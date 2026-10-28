@@ -462,6 +462,6 @@ document.getElementById("losttab").innerHTML = `<thead><tr><th>Town</th><th clas
 document.getElementById("backtab").innerHTML = `<thead><tr><th>Town</th><th class="num">2021</th><th class="wide">Closed 1955 to 1975</th><th>Open today</th></tr></thead><tbody>` +
   R.top_regained.slice(0, 15).map(r => `<tr><td><span class="dot" style="background:var(--back)"></span>${esc(r.name)}<small>${esc(r.region)}</small></td><td class="num">${fmt(r.pop)}</td><td class="wide">${esc(r.closed)}</td><td>${esc(r.today)}</td></tr>`).join("") + "</tbody>";
 </script>
-<script src="https://tristan-hotham.github.io/assets/site-nav.js" defer></script>
+<script src="/assets/site-nav.js" defer></script>
 </body>
 </html>
