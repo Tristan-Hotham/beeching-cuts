@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Did Beeching Kill Your Town?</title>
+<meta name="description" content="Which towns in Britain lost their railway in the closures of 1955 to 1975, and how do they compare today with similar towns that kept a station? Wikipedia's closed station lists, Wikidata, OpenStreetMap, National Rail stations and Census 2021.">
+<meta property="og:title" content="Did Beeching kill your town?">
+<meta property="og:description" content="{{stations.n_1955_75|int}} stations closed between 1955 and 1975. {{towns.groups_sample.lost|int}} towns of 2,000 to 100,000 people lost every station and still have none. How do they look today?">
+<meta property="og:image" content="https://tristan-hotham.github.io/beeching-cuts/header.png">
+<meta property="og:url" content="https://tristan-hotham.github.io/beeching-cuts/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Steam and cream. Crimson = stations closed 1955 to 1975 and towns that lost them. Green = kept. Blue = regained. */
+:root{
+  --bg:#F4EFE3; --panel:#E9E2D2; --fg:#1F1C17; --muted:#625B4E; --rule:#D6CDB9; --card:#FBF8F1; --border:#C2B79F;
+  --hot:#A8322B; --kept:#1E6B45; --back:#2C5F96; --early:#9C9383; --late:#C08A1E; --none:#B9B1A0; --now:#E0442F;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17150F; --panel:#211E17; --fg:#EDE7DA; --muted:#A99F8C; --rule:#36312686; --card:#1D1A14; --border:#4A4334;
+  --hot:#E0614F; --kept:#5DBB8A; --back:#6EA2E0; --early:#7D7565; --late:#E2B04E; --none:#5A5446; --now:#FF8A6B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17150F; --panel:#211E17; --fg:#EDE7DA; --muted:#A99F8C; --rule:#36312686; --card:#1D1A14; --border:#4A4334;
+  --hot:#E0614F; --kept:#5DBB8A; --back:#6EA2E0; --early:#7D7565; --late:#E2B04E; --none:#5A5446; --now:#FF8A6B; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:680px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1080px,calc(100vw - 32px));margin-left:calc((100% - min(1080px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--hot);color:#fff;padding:5px 8px;font-weight:500}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(46px,11vw,96px)/.88 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance;font-variation-settings:"SOFT" 50}
+h1 em{font-style:normal;color:var(--hot)}
+.mark{width:clamp(90px,20vw,180px);height:auto;display:block}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:46ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:52px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(28px,6vw,40px)/1 var(--display);color:var(--fg)}
+.stats b.h{color:var(--hot)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:270px;z-index:1000;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 10px}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn:focus-visible,input:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:3px;overflow:hidden;max-width:100%;flex-wrap:wrap}
+.seg .btn{border:0;border-radius:0;border-right:1px solid var(--border)}
+.seg .btn:last-child{border-right:0}
+.slider{display:flex;gap:10px;align-items:center;flex:1 1 260px;min-width:0}
+.slider input{flex:1;min-width:0;accent-color:var(--hot)}
+.yearbig{font:900 34px/1 var(--display);min-width:3.2ch;color:var(--hot)}
+.count{font:400 12px/1.3 var(--mono);color:var(--muted);flex:0 1 auto}
+@media (max-width:600px){.slider{flex-wrap:wrap}.slider input{flex:1 1 150px}.count{flex-basis:100%}}
+.search{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
+.search input{flex:1 1 240px;min-width:0;font:400 16px/1.2 var(--body);padding:10px 12px;border:1px solid var(--border);border-radius:3px;background:var(--card);color:var(--fg)}
+.answer{background:var(--card);border:1px solid var(--border);border-left:5px solid var(--hot);padding:12px 14px;margin:0 0 14px;font-size:16px;display:none}
+.answer b.t{font:700 22px/1.15 var(--display);display:block;margin-bottom:4px}
+.answer small{display:block;font:400 12.5px/1.45 var(--mono);color:var(--muted);margin-top:6px}
+#lmap{height:640px;border:1px solid var(--border);background:var(--panel);border-radius:2px}
+@media (max-width:600px){#lmap{height:500px}}
+.leaflet-container{font:400 12px/1.4 var(--mono);background:var(--panel)}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--card);color:var(--fg);border-radius:3px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.leaflet-popup-content{margin:12px 14px;font:400 12.5px/1.45 var(--mono);min-width:220px}
+.leaflet-container a.leaflet-popup-close-button{color:var(--muted)}
+.leaflet-bar a,.leaflet-bar a:hover{background:var(--card);color:var(--fg);border-bottom-color:var(--border)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted)}
+.leaflet-control-attribution a{color:var(--fg)}
+.pop b.t{font:600 17px/1.2 var(--display);display:block;margin-bottom:2px}
+.pop .c{color:var(--muted);margin-bottom:6px}
+.pop dl{display:grid;grid-template-columns:auto 1fr;gap:1px 10px;margin:4px 0 6px}
+.pop dt{color:var(--muted)}.pop dd{margin:0}
+.pop .note{font-size:11.5px;color:var(--muted);margin:4px 0}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.legend i.sq{border-radius:1px;width:9px;height:9px}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--hot);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+table.t{width:100%;border-collapse:collapse;font:400 13px/1.35 var(--mono)}
+table.t th{text-align:left;font-weight:500;color:var(--muted);border-bottom:2px solid var(--fg);padding:6px 8px 6px 0}
+table.t td{border-bottom:1px solid var(--rule);padding:7px 8px 7px 0;vertical-align:top}
+table.t td.num,table.t th.num{text-align:right;white-space:nowrap}
+table.t td small{color:var(--muted);display:block}
+table.t .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.tablewrap{overflow-x:auto}
+@media (max-width:600px){table.t .wide{display:none}}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0}
+@media (max-width:600px){.cards{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--hot);padding:12px 14px;font:400 13px/1.5 var(--mono)}
+.card.k{border-left-color:var(--kept)}.card.r{border-left-color:var(--back)}
+.card b{font:600 19px/1.2 var(--display);display:block;margin-bottom:2px}
+.card .big{font:900 26px/1.05 var(--display);margin:8px 0 2px}
+.card .big span{color:var(--muted);font:400 12px/1.35 var(--mono);display:block;margin-top:3px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1002}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>History × data</span><span>Britain, 1955 to 2021</span></div>
+<header class="hero">
+  <h1>Did Beeching kill <em>your town?</em></h1>
+  <svg class="mark" viewBox="0 0 200 130" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">In the 1950s, 1960s and early 1970s Britain closed thousands of railway stations. I mapped every closure in Wikipedia's lists, found the towns that lost every station and never got one back, and compared them with similar towns that kept theirs.</p>
+</header>
+<div class="byline">Dr Tristan Hotham, Independent researcher · October 2026 · Data: Wikipedia, Wikidata, OpenStreetMap, National Rail station list, ONS Census 2021 and income estimates</div>
+
+<div class="stats">
+  <div><b class="h">{{stations.n_1955_75|int}}</b><span>listed stations closed between 1955 and 1975</span></div>
+  <div><b>{{stations.peak_n|int}}</b><span>closed in {{stations.peak_year|raw}}, the worst single year</span></div>
+  <div><b class="h">{{towns.groups_sample.lost|int}}</b><span>towns of 2,000 to 100,000 people lost every station and still have none</span></div>
+  <div><b>{{headline.income_pct_of_kept|pctabs}}</b><span>lower household income in those towns, against similar towns that kept a station</span></div>
+</div>
+
+<p class="lede">On {{context.report_date|raw}} the British Railways Board published The Reshaping of British Railways, the report written under its chairman, Richard Beeching. It proposed closing {{context.report_stations|int}} stations and about {{context.report_miles|int}} miles of line. Many closures came before it and many after, but his name has stuck to all of them.</p>
+<p>Ask in almost any small town that lost its trains and someone will tell you the closure was the start of a long decline. Is that true? It is a hard question to answer fairly, because the closures were not random. The lines that went were the quiet ones, and quiet lines served small, rural places. So a town that lost its station might look different today simply because it was always a smaller, sleepier sort of place.</p>
+<p>I tried to answer three questions with open data. When did the stations close? Which towns lost their railway for good, and which got it back? And how do those towns compare today with towns of the same size, in the same region, that kept a station?</p>
+
+<h2><span class="n">01 · The closures</span>Every station, year by year</h2>
+<p>Wikipedia's List of closed railway stations in Great Britain runs to {{stations.n_list_pages|int}} pages and {{stations.n_list_rows|int}} entries, from the first closure in {{stations.first_year|raw}} to the present. I parsed every table and placed {{stations.share_placed|pct}} of the stations on the map, mostly through their Wikidata entries. For the closures of 1955 to 1975 that share is {{stations.share_1955_75_placed|pct}}.</p>
+<p>Search for a town, or press play to watch the network thin out year by year. Dots turn bright red in the year they close. Switch to "Towns today" to see which built-up areas lost every station, which kept one and which got one back.</p>
+<div class="figure bleed">
+  <div class="search">
+    <input id="q" list="townlist" placeholder="Find your town (England, Wales or Scotland)" aria-label="Find your town" autocomplete="off">
+    <datalist id="townlist"></datalist>
+    <button class="btn" id="go">Find</button>
+  </div>
+  <div class="answer" id="answer" aria-live="polite"></div>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Map layer">
+      <button class="btn" data-mode="closures" aria-pressed="true">Closures by year</button>
+      <button class="btn" data-mode="towns" aria-pressed="false">Towns today</button>
+    </div>
+    <button class="btn" id="play" aria-pressed="false">▶ Play</button>
+    <div class="slider"><span class="yearbig" id="yr">1975</span><input type="range" id="year" min="1900" max="2025" step="1" value="1975" aria-label="Show stations closed by this year"><span class="count" id="cnt"></span></div>
+    <button class="btn" id="opens" aria-pressed="false">Stations open today</button>
+  </div>
+  <div id="lmap" role="region" aria-label="Map of closed railway stations in Great Britain coloured by year of closure, with towns by railway history"></div>
+  <div class="legend" id="legend"></div>
+  <div class="src">Closed stations: Wikipedia's lists (CC BY-SA 4.0), placed by Wikidata (CC0), OpenStreetMap (ODbL) or, as a last resort, OS Open Names. Stations open today: National Rail stations (uk-railway-stations, ODbL). Towns: ONS Built-up Areas 2022. Click the map to let the scroll wheel zoom it.</div>
+</div>
+
+<div class="figure">
+  <div class="fig-h">Stations closed each year, 1900 to 2000</div>
+  <div class="fig-sub">Entries in Wikipedia's lists by year of closure. Red: 1955 to 1975.</div>
+  <div class="chart" id="years"></div>
+  <div class="src">{{stations.n_before_1955|int}} listed closures came before 1955, including {{stations.n_1930s|int}} in the 1930s; {{stations.n_after_1975|int}} came after 1975.</div>
+</div>
+<p>The closures came in two waves. The first, in the early 1950s, came as the Branch Lines Committee, set up in 1949, closed the least-used branch lines. The second, much bigger, peaked in {{stations.peak_year|raw}}, the year after the report, when {{stations.peak_n|int}} of the listed stations closed. Between 1955 and 1975 {{stations.n_1955_75|int}} stations closed, {{stations.share_1955_75|pct}} of all the dated entries in the lists; {{stations.n_1963_70|int}} of them closed between 1963 and 1970 alone. By the mid 1970s the closures had all but stopped.</p>
+<p>One caution about these counts. Wikipedia keeps separate lists of closed stations for London, Greater Manchester, Merseyside, the West Midlands, Lancashire and Norfolk, which I did not parse, so some urban closures may be missing. I filled in {{stations.n_wikidata_only_1955_75|int}} closures of 1955 to 1975 from Wikidata where the lists had no station nearby. Where both sources give a closure year, they agree exactly for {{stations.wd_year_share_exact|pct}} of {{stations.wd_year_check_n|int}} stations.</p>
+
+<h2><span class="n">02 · The towns</span>Who lost their railway for good?</h2>
+<p>To turn stations into towns I used the ONS Built-up Areas of 2022, which cover every town and village in Great Britain. A station belongs to a town if it lies within 2 km of the town's centre, or within 1 km of its edge for larger towns (I treat each town as a circle with the same area). Then I sorted every town by its railway history:</p>
+<ul>
+  <li><b>Lost</b>: at least one station closed between 1955 and 1975, no station left by the end of 1975, and no National Rail station today.</li>
+  <li><b>Regained</b>: the same losses, but a National Rail station today, reopened or new.</li>
+  <li><b>Kept</b>: a station open at the end of 1975 that is still open today.</li>
+</ul>
+<p>For the comparisons I keep to the {{towns.n_sample|int}} built-up areas in England and Wales with 2,000 to 100,000 people in 2021, because Census 2021 figures for Scotland are not in my data. Of the {{towns.n_had_station_1955|int}} of these towns that had a station in 1955, {{towns.groups_sample.lost|int}} ({{towns.share_lost_of_had|pct}}) lost it and still have none, {{towns.groups_sample.regained|int}} lost their railway but have it back, and {{towns.groups_sample.kept|int}} kept a station throughout.</p>
+<div class="figure">
+  <div class="fig-h">Share of towns with a station in 1955 that had none by 1975 and have none today</div>
+  <div class="fig-sub">Built-up areas in England and Wales by 2021 population. Number of towns in brackets.</div>
+  <div class="chart" id="sizes"></div>
+</div>
+<p>The closures picked small places. Half of the towns of 2,000 to 5,000 people that had a station in 1955 have lost it for good ({{headline.lost_share_small|pct}}), against {{headline.lost_share_large|pct}} of the towns of 50,000 to 100,000. The lost towns are also a little further from big cities: their median distance to a city of 100,000 or more is {{towns.medians.lost.median_km_city|f1}} km, against {{towns.medians.kept.median_km_city|f1}} km for the towns that kept a station. That is the selection problem in a nutshell, and it is why every comparison below allows for size and region.</p>
+<div class="figure">
+  <div class="fig-h">Share lost, by region</div>
+  <div class="fig-sub">Towns of 2,000 to 100,000 people with a station in 1955.</div>
+  <div class="chart" id="regions"></div>
+</div>
+<p>The East Midlands and the South West lost the most: {{towns.by_region.0.share_lost|pct}} and {{towns.by_region.1.share_lost|pct}} of their station towns. The South East, with its busy commuter lines, lost the fewest, {{towns.by_region.8.share_lost|pct}}.</p>
+
+<h3>The biggest towns without a railway</h3>
+<p>Across all of England and Wales, {{towns.n_lost_ew_all|int}} built-up areas lost every station in the closures and still have none; {{towns.n_lost_ew_10k|int}} of them have 10,000 people or more, and together they are home to {{towns.pop_lost_ew|int}} people. Some are suburbs of cities that are served by trams or metros instead: the Tyne and Wear Metro took over the lines through Wallsend, and Sale has Manchester's Metrolink, which my station data do not count. But many are free-standing towns: Washington ({{spot.Washington.pop|int}} people, last station closed {{spot.Washington.last|raw}}), Leigh ({{spot.Leigh (Wigan).pop|int}}, {{spot.Leigh (Wigan).last|raw}}), Skelmersdale, Dunstable, Witney, Haverhill, Consett and Portishead, where plans to reopen the line are in hand.</p>
+<div class="figure">
+  <div class="tablewrap"><table class="t" id="losttab"></table></div>
+  <div class="src">Built-up areas in England and Wales that lost every station between 1955 and 1975 and have no National Rail station within reach today, by 2021 population. "Other rail" lists metro, Underground or heritage stations mapped in OpenStreetMap within the same distance.</div>
+</div>
+
+<h3>The towns that got their railway back</h3>
+<p>{{towns.n_regained_ew|int}} built-up areas in England and Wales, and {{towns.groups_scotland.regained|int}} in Scotland, lost every station but have one again. Mansfield, with {{spot.Mansfield.pop|int}} people, was long said to be the largest town in Britain without a railway, until the Robin Hood Line reopened in the 1990s. Corby got its station back in 2009, Kenilworth in 2018, Okehampton's regular trains returned in 2021, and Ashington's in 2024 on the reopened Northumberland Line. In Scotland the Borders Railway brought trains back to Galashiels in 2015.</p>
+<div class="figure">
+  <div class="tablewrap"><table class="t" id="backtab"></table></div>
+</div>
+
+<h2><span class="n">03 · Today</span>How do the towns compare?</h2>
+<p>Now the big question. For each town I took six figures: the share of residents aged 65 or over, the share of households without a car or van, the share of adults in work, the share long-term sick or disabled, the share in managerial or professional jobs (all Census 2021) and mean household income (ONS estimates for the financial year ending 2023, available for {{headline.income_n|int}} of the towns).</p>
+<div class="cards">
+  <div class="card"><b>Lost</b><div class="big">{{outcomes.median.lost.n|int}} <span>towns, median {{towns.medians.lost.median_pop|int}} people</span></div><div class="big">{{outcomes.median.lost.pct_65plus|pct1}} <span>median share aged 65+</span></div><div class="big">{{outcomes.median.lost.income_fye2023|gbp}} <span>median household income</span></div></div>
+  <div class="card k"><b>Kept</b><div class="big">{{outcomes.median.kept.n|int}} <span>towns, median {{towns.medians.kept.median_pop|int}} people</span></div><div class="big">{{outcomes.median.kept.pct_65plus|pct1}} <span>median share aged 65+</span></div><div class="big">{{outcomes.median.kept.income_fye2023|gbp}} <span>median household income</span></div></div>
+  <div class="card r"><b>Regained</b><div class="big">{{outcomes.median.regained.n|int}} <span>towns, median {{towns.medians.regained.median_pop|int}} people</span></div><div class="big">{{outcomes.median.regained.pct_65plus|pct1}} <span>median share aged 65+</span></div><div class="big">{{outcomes.median.regained.income_fye2023|gbp}} <span>median household income</span></div></div>
+</div>
+<p>Raw medians mix up the railway with size: the lost towns are half the size of the kept towns, and small towns are older and richer in cars. So I compared each group with kept towns of similar size in the same region, using a regression with region, size and size squared. The chart shows the gaps and their 95% intervals.</p>
+<div class="figure">
+  <div class="fig-h">Lost and regained towns against similar towns that kept a station</div>
+  <div class="fig-sub">Difference from kept towns of the same size and region. Dots: estimate; lines: 95% interval. Percentage points, except income (£ a year).</div>
+  <div class="chart" id="gaps"></div>
+  <div class="src">Least-squares regressions with robust standard errors, {{outcomes.models.pct_65plus.size_region_n|int}} towns ({{headline.income_n|int}} for income). Grey band: no difference.</div>
+</div>
+<p>Among towns of the same size today, the differences are modest, but not nothing. Compared with towns of the same size and region that kept a station, the towns that lost theirs have about {{headline.income_gbp|gbpabs}} a year lower household income ({{headline.income_pct_of_kept|pctabs}} of the kept towns' median), and {{headline.mgr_pts|ppabs}} percentage points fewer adults in managerial and professional jobs. They have {{headline.nocar_pts|ppabs}} points fewer households without a car: life there needs one. On age, work and long-term sickness I find no clear difference at all. The lost towns are not noticeably older ({{headline.age65_pts|pp}} points, well within chance).</p>
+<p class="pull">Size for size, the towns that lost their trains are a little poorer and more car-bound than their neighbours with stations. They did not fall off a cliff.</p>
+<p>Where does the income gap come from? A clue: among the {{checks.near_cities.n_lost|int}} lost towns within 15 km of a city of 100,000 or more, the gap is {{headline.near_income_gbp|gbpabs}}; among the {{checks.away_from_cities.n_lost|int}} further away it all but vanishes ({{headline.away_income_gbp|gbpabs}}, easily chance). Near a city a station means a commute, and it would make sense for commuters on good salaries to pick towns with stations. If so, the railway today sorts who lives where more than it decides whether a town lives or dies.</p>
+<p>That is not the whole story, and the part my comparison cannot see may be the biggest. Because I compare towns of the same size in 2021, any people a town lost because its trains went are matched away. A careful study by Stephen Gibbons, Stephan Heblich and Edward Pinchbeck, which follows the rail network and local populations from 1950 to 1980 and beyond, finds that places that lost more rail access lost population relative to others, along with jobs, skilled workers and young people. My result is consistent with that: the cuts may have made some towns smaller rather than poorer.</p>
+<p>The towns that got their railway back are different again. Many are old industrial towns, such as Corby, Mansfield and Aberdare, and today they have {{headline.regained_work_pts|ppabs}} points more adults in work than similar kept towns, and fewer older residents. With only {{outcomes.median.regained.n|int}} of them, and reopenings chosen where the case was strongest, I would not read much into it.</p>
+
+<h2><span class="n">04 · What this cannot show</span>Selection, catchments and gaps</h2>
+<p><b>Association, not cause.</b> The closures were chosen. Beeching's report targeted lines and stations with few passengers, which were mostly in smaller, more rural places. I compare towns of similar size in the same region, but towns differ in ways my data do not see: how busy the station was, the local economy in 1960, the roads. And 2021 size may itself reflect the closures, so matching on it could hide some of their effect. Nothing here shows what the closures did; it shows how the towns differ now.</p>
+<p><b>Before and after.</b> I have no town figures from before the closures, so I cannot compare growth. Gibbons, Heblich and Pinchbeck (<a href="https://doi.org/10.1016/j.jue.2024.103691">Journal of Urban Economics, 2024</a>) do exactly that with census data from the 1950s on, and find lasting population losses where rail access was cut.</p>
+<p><b>Which station serves which town.</b> My rule, a station within 2 km of the centre or 1 km of the edge, is rough. Large towns are not circles, so a station on the edge can be missed or one in the next town counted. With a tighter rule (1 km, or 0.5 km beyond the edge) {{checks.r1km.n_lost|int}} towns count as lost and the income gap is {{checks.r1km.models.income_fye2023.size_region_lost.b|gbpabs}}; with a looser one (3 km, or 1.5 km beyond the edge) {{checks.r3km.n_lost|int}} towns and {{checks.r3km.models.income_fye2023.size_region_lost.b|gbpabs}}. Leaving out the {{towns.n_lost_other_rail|int}} lost towns with a metro, Underground or heritage station gives {{checks.no_other_rail.models.income_fye2023.size_region_lost.b|gbpabs}}, and keeping only towns of 5,000 or more gives {{checks.over5k.models.income_fye2023.size_region_lost.b|gbpabs}}.</p>
+<p><b>Stations open today.</b> I count National Rail stations only, so trams, metros and heritage railways do not count as keeping a town's railway. I worked out which of today's stations were closed at the end of 1975 by matching them to the closed lists and to Wikidata opening dates; {{open.status.reopened_after_1975|int}} of the {{open.n_national_rail|int}} stations look reopened and {{open.status.new_after_1975|int}} new since 1975. This matching will have made some mistakes, particularly where an old station of the same name closed while another stayed open.</p>
+<p><b>Coverage.</b> {{stations.placing.unplaced|int}} listed stations could not be placed, and I did not parse Wikipedia's separate lists for London, Greater Manchester, Merseyside, the West Midlands, Lancashire and Norfolk. Income estimates exist only for towns that have a best-fit MSOA of their own, so the smallest towns drop out of the income comparison.</p>
+
+<div class="note" id="method">
+  <h3>How I did this</h3>
+  <p><b>Closed stations.</b> I parsed every table in the {{stations.n_list_pages|int}} pages of Wikipedia's List of closed railway stations in Great Britain (A to Z): station, company, the year in the "Year closed" column (the latest year given, ignoring any reopening year) and any reopening noted. I placed each station by its linked article's Wikidata item ({{stations.placing.wikidata_label|int}} stations), then by a closed or historic station of the same name in OpenStreetMap ({{stations.placing.osm_closed_station_name|int}}), then by the place it is named after in OS Open Names when that name is unique in its county ({{stations.placing.osnames_place|int}}); {{stations.placing.unplaced|int}} remain unplaced. I added {{stations.n_wikidata_only_1955_75|int}} Wikidata stations closed in 1955 to 1975 that had no list entry within 500 m.</p>
+  <p><b>Stations today.</b> The {{open.n_national_rail|int}} National Rail stations in the uk-railway-stations dataset (October 2026). A station counts as closed at the end of 1975 if a list entry of the same name within 1 km closed between 1950 and 1975 (or earlier, with a reopening noted after 1975), or if Wikidata gives it a reopening date after 1975; as new if Wikidata's earliest opening date is after 1975.</p>
+  <p><b>Towns and outcomes.</b> ONS Built-up Areas 2022 for Great Britain; Census 2021 tables TS001, TS007A, TS045, TS062 and TS066 summed from LSOAs by the ONS best-fit lookup; mean household income from the ONS small area estimates (FYE2023), population-weighted over best-fit MSOAs. Comparisons: least-squares regressions of each outcome on the railway group, log population and its square, and region, with robust standard errors; checks add the log distance to the nearest built-up area of 100,000 or more, and a nearest-neighbour match within region on population. These are associations, not causes.</p>
+</div>
+<div class="cta">
+  <a class="p" href="https://github.com/Tristan-Hotham/beeching-cuts">Data and code</a>
+  <a href="https://doi.org/10.5281/zenodo.23727114">Read the paper</a>
+  <a href="https://blog.tristanhotham.com/2026/10/28/beeching-cuts/">Blog post</a>
+  <a href="https://tristan-hotham.github.io/canal-mania/">Canal Mania</a>
+  <a href="https://blog.tristanhotham.com/">More history data</a>
+</div>
+<footer>
+  <p>Dr Tristan Hotham, Independent researcher. ORCID 0000-0003-4931-9349. Cite as: Hotham, T. (2026) Did Beeching Kill Your Town? Britain's Lost Railway Towns, 1955 to 2021. Zenodo. https://doi.org/10.5281/zenodo.23727114</p>
+  <p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+  <p>Closed station lists and the Beeching cuts article: Wikipedia, CC BY-SA 4.0. Wikidata, CC0. Station points: © OpenStreetMap contributors, ODbL. National Rail stations: uk-railway-stations by David Wheatley, from Trainline EU's stations data, ODbL. Census 2021 and income estimates: Office for National Statistics, licensed under the Open Government Licence v3.0. OS Open Names and ONS geography: contains OS data © Crown copyright and database right 2026. Tiles © Esri.</p>
+  <p>Data and page text: CC BY-SA 4.0 (because of the Wikipedia lists), with station points derived from OpenStreetMap and the National Rail station list under the ODbL. Code: MIT licence.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const D = /*SITE*/;
+const R = /*RESULTS*/;
+const NS = "http://www.w3.org/2000/svg";
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const el = (t, a = {}, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const fmt = n => n == null ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const gbp = n => n == null ? "n/a" : "£" + fmt(n);
+const pc = v => v == null ? "n/a" : (v * 100).toFixed(1) + "%";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+function hover(node, h) { node.style.cursor = "pointer"; node.setAttribute("tabindex", "0"); const s = () => { const r = node.getBoundingClientRect(); showTip(h, r.left + r.width / 2, r.top); }; node.addEventListener("pointerenter", s); node.addEventListener("pointerleave", hideTip); node.addEventListener("focus", s); node.addEventListener("blur", hideTip); node.addEventListener("click", e => { s(); e.stopPropagation(); }); }
+document.addEventListener("click", hideTip);
+const redraws = [];
+function resp(box, render) { let last = 0; const go = (force) => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; redraws.forEach(f => f()); };
+const GROUPS = { lost: ["--hot", "Lost: closed 1955 to 1975, none today"], regained: ["--back", "Regained: lost, then reopened or new"], kept: ["--kept", "Kept a station"], lost_late: ["--late", "Lost after 1975"], lost_early: ["--early", "Lost before 1955"], new: ["--back", "New station since 1975"], none: ["--none", "No listed station"] };
+const SENT = {
+  lost: t => `lost ${t.closed.split(";").length > 1 ? "all its stations" : "its station"} between 1955 and 1975 (${esc(t.closed)}) and has no National Rail station today.`,
+  regained: t => `lost ${t.closed.split(";").length > 1 ? "all its stations" : "its station"} between 1955 and 1975 (${esc(t.closed)}) but has a railway again: ${esc(t.today)}.`,
+  kept: t => `kept a station through the closures. Open today: ${esc(t.today)}.` + (t.closed ? ` Closed in 1955 to 1975 nearby: ${esc(t.closed)}.` : ""),
+  lost_late: t => `kept a station through 1975 but has no National Rail station today (last closure ${t.last}).`,
+  lost_early: t => `had a station, but it closed before 1955 (last closure ${t.last}). No National Rail station today.`,
+  new: t => `has a National Rail station that opened after 1975 (${esc(t.today)}).`,
+  none: t => `has no station in the closed lists and no National Rail station within reach today.` };
+
+/* hero mark: a level crossing sign style locomotive with a broken track */
+(() => { const g = document.getElementById("heroMark");
+  el("line", { x1: 4, y1: 112, x2: 196, y2: 112, stroke: "var(--fg)", "stroke-width": 3 }, g);
+  for (let i = 0; i < 12; i++) el("rect", { x: 8 + i * 16, y: 112, width: 8, height: 6, fill: i > 7 ? "var(--rule)" : "var(--fg)" }, g);
+  el("line", { x1: 140, y1: 112, x2: 196, y2: 112, stroke: "var(--bg)", "stroke-width": 4, "stroke-dasharray": "6 6" }, g);
+  el("rect", { x: 30, y: 62, width: 86, height: 36, rx: 4, fill: "var(--kept)" }, g);
+  el("rect", { x: 92, y: 40, width: 30, height: 58, rx: 3, fill: "var(--kept)" }, g);
+  el("rect", { x: 98, y: 48, width: 18, height: 14, fill: "var(--bg)" }, g);
+  el("rect", { x: 44, y: 46, width: 10, height: 18, fill: "var(--fg)" }, g);
+  el("path", { d: "M20 98 L30 80 L30 98 Z", fill: "var(--fg)" }, g);
+  [48, 78, 108].forEach(x => el("circle", { cx: x, cy: 102, r: 9, fill: "var(--fg)", stroke: "var(--bg)", "stroke-width": 2 }, g));
+  [[56, 32, 8], [70, 18, 11], [90, 8, 7]].forEach(([x, y, r]) => el("circle", { cx: x, cy: y, r, fill: "var(--rule)" }, g));
+  el("circle", { cx: 160, cy: 60, r: 26, fill: "none", stroke: "var(--hot)", "stroke-width": 7 }, g);
+  el("line", { x1: 142, y1: 42, x2: 178, y2: 78, stroke: "var(--hot)", "stroke-width": 7 }, g);
+})();
+
+/* ===== map ===== */
+const CL = D.closed.map(a => ({ lat: a[0], lng: a[1], y: a[2], name: a[3], re: a[4] }));
+const OP = D.open.map(a => ({ lat: a[0], lng: a[1], name: a[2], st: a[3] }));
+const TW = D.towns.map(a => ({ name: a[0], lat: a[1], lng: a[2], pop: a[3], g: a[4], closed: a[5], today: a[6], last: a[7], p65: a[8], nocar: a[9], work: a[10], mgr: a[11], inc: a[12], region: a[13] }));
+let lmap, tiles, clMk = [], opMk = [], twMk = [], year = 1975, mode = "closures", showOpen = false, timer = null;
+function tileUrl() { return `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_${isDark() ? "Dark" : "Light"}_Gray_Base/MapServer/tile/{z}/{y}/{x}`; }
+function zf() { return Math.pow(1.3, Math.min(lmap.getZoom(), 11) - 6); }
+function clStyle(s) {
+  if (mode === "towns") return lmap.getZoom() >= 9 && s.y >= 1955 && s.y <= 1975 ? { radius: 3, fillColor: css("--hot"), fillOpacity: 1, color: css("--bg"), weight: 1, opacity: 1 } : { opacity: 0, fillOpacity: 0, radius: 0 };
+  if (s.y > year) return { opacity: 0, fillOpacity: 0, radius: 0 };
+  const now = s.y === year, mid = s.y >= 1955 && s.y <= 1975;
+  const c = now ? css("--now") : s.y < 1955 ? css("--early") : mid ? css("--hot") : css("--late");
+  return { radius: (now ? 4.2 : 2.4) * zf(), fillColor: c, fillOpacity: now ? 1 : mid ? 0.8 : 0.55, color: now ? css("--fg") : c, weight: now ? 0.8 : 0, opacity: 1 };
+}
+function opStyle() { return showOpen ? { radius: 2.2 * zf(), fillColor: css("--kept"), fillOpacity: 0.9, color: css("--bg"), weight: 0.6, opacity: 1 } : { opacity: 0, fillOpacity: 0, radius: 0 }; }
+function twStyle(t) {
+  if (mode !== "towns" || t.g === "none") return { opacity: 0, fillOpacity: 0, radius: 0 };
+  const zf = () => Math.pow(1.3, Math.min(lmap.getZoom(), 8) - 6);
+  const r = t.pop ? Math.max(2.5, Math.min(26, Math.sqrt(t.pop) / 28)) : 3.5;
+  return { radius: r * zf(), fillColor: css(GROUPS[t.g][0]), fillOpacity: 0.78, color: css("--bg"), weight: 0.8, opacity: 1 };
+}
+function twPop(t) { const row = (k, v) => v == null ? "" : `<dt>${k}</dt><dd>${v}</dd>`;
+  return `<div class="pop"><b class="t">${esc(t.name)}</b><div class="c">${esc(t.region)} · ${GROUPS[t.g][1]}</div><dl>${row("Residents 2021", t.pop ? fmt(t.pop) : null)}${row("Closed 1955 to 1975", t.closed ? esc(t.closed) : null)}${row("Open today", t.today ? esc(t.today) : "none")}${row("Aged 65+", t.p65 != null ? pc(t.p65) : null)}${row("No car", t.nocar != null ? pc(t.nocar) : null)}${row("Managerial", t.mgr != null ? pc(t.mgr) : null)}${row("Income FYE2023", t.inc ? gbp(t.inc) : null)}</dl>${t.region === "Scotland" ? '<div class="note">Census 2021 figures cover England and Wales only.</div>' : ""}</div>`; }
+function legend() {
+  const L = document.getElementById("legend");
+  if (mode === "closures") L.innerHTML = `<span><i style="background:var(--now)"></i>Closed in ${year}</span><span><i style="background:var(--early)"></i>Before 1955</span><span><i style="background:var(--hot)"></i>1955 to 1975</span><span><i style="background:var(--late)"></i>After 1975</span>` + (showOpen ? `<span><i style="background:var(--kept)"></i>National Rail station today</span>` : "");
+  else L.innerHTML = ["lost", "regained", "kept", "lost_early", "lost_late"].map(g => `<span><i style="background:var(${GROUPS[g][0]})"></i>${GROUPS[g][1]}</span>`).join("") + "<span>Sized by 2021 residents (England and Wales). Zoom in to see the stations closed in 1955 to 1975.</span>";
+}
+function restyle() {
+  clMk.forEach(m => m.setStyle(clStyle(m.s))); opMk.forEach(m => m.setStyle(opStyle())); twMk.forEach(m => m.setStyle(twStyle(m.t)));
+  document.getElementById("yr").textContent = year;
+  const n = CL.filter(s => s.y <= year && s.y >= 1955).length, k = CL.filter(s => s.y === year).length;
+  document.getElementById("cnt").textContent = mode === "closures" ? `${fmt(k)} closed in ${year}; ${fmt(n)} since 1955` : "";
+  legend();
+}
+(() => {
+  if (!window.L) { document.getElementById("lmap").innerHTML = '<p style="padding:16px">The map library did not load.</p>'; return; }
+  lmap = L.map("lmap", { preferCanvas: true, zoomSnap: 0.5, minZoom: 5, maxZoom: 14, scrollWheelZoom: false });
+  lmap.fitBounds([[50.0, -6.0], [58.7, 1.8]], { padding: innerWidth < 600 ? [0, 0] : [10, 10] });
+  tiles = L.tileLayer(tileUrl(), { attribution: 'Tiles &copy; Esri &middot; Stations: Wikipedia, Wikidata, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 16 }).addTo(lmap);
+  const rend = L.canvas({ padding: 0.5, tolerance: 3 });
+  [...TW].sort((a, b) => (b.pop || 0) - (a.pop || 0)).forEach(t => { const m = L.circleMarker([t.lat, t.lng], { renderer: rend }); m.t = t; m.bindPopup(() => twPop(t), { maxWidth: 300 }); m.addTo(lmap); twMk.push(m); });
+  CL.forEach(s => { const m = L.circleMarker([s.lat, s.lng], { renderer: rend }); m.s = s; m.bindPopup(() => `<div class="pop"><b class="t">${esc(s.name)}</b><div class="c">Closed ${s.y}${s.re ? " · a reopening is noted in the list" : ""}</div></div>`); m.addTo(lmap); clMk.push(m); });
+  OP.forEach(s => { const m = L.circleMarker([s.lat, s.lng], { renderer: rend }); m.bindPopup(() => `<div class="pop"><b class="t">${esc(s.name)}</b><div class="c">National Rail station today${s.st === 1 ? " · closed in 1975, reopened since" : s.st === 2 ? " · new since 1975" : ""}</div></div>`); m.addTo(lmap); opMk.push(m); });
+  lmap.on("zoomend", restyle);
+  lmap.on("click focus", () => lmap.scrollWheelZoom.enable());
+  lmap.getContainer().addEventListener("mouseleave", () => lmap.scrollWheelZoom.disable());
+  restyle();
+  const sl = document.getElementById("year"), pb = document.getElementById("play");
+  sl.oninput = () => { year = +sl.value; setMode("closures"); };
+  const stop = () => { clearInterval(timer); timer = null; pb.textContent = "▶ Play"; pb.setAttribute("aria-pressed", "false"); };
+  pb.onclick = () => { if (timer) { stop(); return; } setMode("closures"); if (+sl.value >= 1980) sl.value = 1948; year = +sl.value; restyle(); pb.textContent = "❚❚ Pause"; pb.setAttribute("aria-pressed", "true");
+    timer = setInterval(() => { if (year >= 1980) { stop(); return; } year += 1; sl.value = year; restyle(); }, 450); };
+  document.getElementById("opens").onclick = e => { showOpen = !showOpen; e.target.setAttribute("aria-pressed", showOpen); restyle(); };
+  document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => setMode(b.dataset.mode));
+  redraws.push(() => { tiles.setUrl(tileUrl()); restyle(); });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => redraws.forEach(f => f()));
+})();
+function setMode(m) { mode = m; document.querySelectorAll("[data-mode]").forEach(x => x.setAttribute("aria-pressed", x.dataset.mode === m)); if (lmap) restyle(); }
+
+/* ===== find your town ===== */
+(() => {
+  const named = TW.filter(t => t.g !== "none" || t.pop >= 2000), names = new Map();
+  named.forEach(t => { if (!names.has(t.name) || (t.pop || 0) > (names.get(t.name).pop || 0)) names.set(t.name, t); });
+  document.getElementById("townlist").innerHTML = [...names.keys()].sort().map(n => `<option value="${esc(n)}">`).join("");
+  const q = document.getElementById("q"), ans = document.getElementById("answer");
+  const find = () => { const v = q.value.trim().toLowerCase(); if (!v) return;
+    let t = names.get(q.value.trim()) || [...names.values()].find(x => x.name.toLowerCase() === v) || [...names.values()].filter(x => x.name.toLowerCase().startsWith(v)).sort((a, b) => (b.pop || 0) - (a.pop || 0))[0] || [...names.values()].filter(x => x.name.toLowerCase().includes(v)).sort((a, b) => (b.pop || 0) - (a.pop || 0))[0];
+    ans.style.display = "block";
+    if (!t) { ans.style.borderLeftColor = "var(--border)"; ans.innerHTML = `<b class="t">Not found</b>I could not find "${esc(q.value)}" among the built-up areas. Try the nearest town's name.`; return; }
+    ans.style.borderLeftColor = `var(${GROUPS[t.g][0]})`;
+    ans.innerHTML = `<b class="t">${esc(t.name)}</b>${t.pop ? fmt(t.pop) + " residents in 2021. " : ""}It ${SENT[t.g](t)}` +
+      (t.inc ? `<small>Aged 65+: ${pc(t.p65)} · households with no car: ${pc(t.nocar)} · managerial or professional: ${pc(t.mgr)} · mean household income ${gbp(t.inc)} (FYE2023)</small>` : t.region === "Scotland" ? "<small>Census 2021 figures cover England and Wales only.</small>" : "");
+    if (lmap) { setMode(t.g === "none" ? "closures" : "towns"); lmap.setView([t.lat, t.lng], 11); const m = twMk.find(x => x.t === t); if (m && t.g !== "none") setTimeout(() => m.openPopup(), 350); } };
+  document.getElementById("go").onclick = find;
+  q.addEventListener("change", find); q.addEventListener("keydown", e => { if (e.key === "Enter") find(); });
+})();
+
+/* ===== closures by year ===== */
+resp(document.getElementById("years"), (W, nar) => {
+  const rows = []; for (let y = 1900; y <= 2000; y++) rows.push({ y, n: R.by_year[y] || 0 });
+  const H = nar ? 230 : 280, m = { l: 40, r: 8, t: 14, b: 34 }, bw = (W - m.l - m.r) / rows.length, max = Math.max(...rows.map(r => r.n));
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Bar chart of listed station closures per year, 1900 to 2000, peaking in the 1960s" }, document.getElementById("years"));
+  const Y = v => H - m.b - v / max * (H - m.t - m.b);
+  [0, 100, 200, 300, 400, 500].forEach(t => { if (t > max) return; el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: "var(--rule)" }, svg); lbl(svg, m.l - 6, Y(t) + 4, fmt(t), "lab m s", "end"); });
+  rows.forEach((r, i) => { const x = m.l + i * bw, c = r.y >= 1955 && r.y <= 1975 ? "--hot" : "--early";
+    const b = el("rect", { x: x + 0.3, y: Y(r.n), width: Math.max(1, bw - 0.6), height: Math.max(0, H - m.b - Y(r.n)), fill: `var(${c})` }, svg);
+    hover(b, `<b>${r.y}</b><br>${fmt(r.n)} listed stations closed`);
+    if (r.y % (nar ? 20 : 10) === 0) lbl(svg, x + bw / 2, H - m.b + 15, r.y, "lab m s", "middle"); });
+  const pi = rows.findIndex(r => r.y === R.peak_year); lbl(svg, m.l + pi * bw + bw / 2 + 6, Y(rows[pi].n) + 10, `${R.peak_year}: ${fmt(rows[pi].n)}`, "lab s b", "start");
+  const ri = rows.findIndex(r => r.y === 1963); el("line", { x1: m.l + ri * bw + bw / 2, x2: m.l + ri * bw + bw / 2, y1: m.t + 18, y2: H - m.b, stroke: "var(--fg)", "stroke-dasharray": "2 3" }, svg);
+  lbl(svg, m.l + ri * bw - 4, m.t + 14, "1963 report", "lab s", "end");
+});
+
+/* ===== share lost by size ===== */
+resp(document.getElementById("sizes"), (W, nar) => {
+  const rows = R.by_size, rowH = 34, m = { l: nar ? 112 : 150, r: 70, t: 4, b: 26 }, H = rows.length * rowH + m.t + m.b;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Share of station towns that lost their railway for good, by size: highest for the smallest towns" }, document.getElementById("sizes"));
+  const X = v => m.l + v / 0.6 * (W - m.l - m.r);
+  [0, 0.2, 0.4, 0.6].forEach(t => { el("line", { x1: X(t), x2: X(t), y1: m.t, y2: H - m.b, stroke: "var(--rule)" }, svg); lbl(svg, X(t), H - m.b + 15, Math.round(t * 100) + "%", "lab m s", "middle"); });
+  rows.forEach((r, i) => { const y = m.t + i * rowH, nm = `${fmt(r.lo / 1000)}k to ${fmt(r.hi / 1000)}k`;
+    lbl(svg, m.l - 8, y + 20, nm, nar ? "lab s" : "lab", "end");
+    const b = el("rect", { x: m.l, y: y + 8, width: Math.max(1, X(r.share_lost) - m.l), height: rowH - 14, rx: 2, fill: "var(--hot)" }, svg);
+    hover(b, `<b>${nm} people</b><br>${r.n} towns with a station in 1955<br>${r.lost} lost it for good, ${r.regained} regained, ${r.kept} kept`);
+    lbl(svg, X(r.share_lost) + 6, y + 20, `${Math.round(r.share_lost * 100)}% (${r.n})`, "lab s"); });
+});
+
+/* ===== by region ===== */
+resp(document.getElementById("regions"), (W, nar) => {
+  const rows = R.by_region.filter(r => r.n >= 20), rowH = 26, m = { l: nar ? 116 : 190, r: 66, t: 4, b: 26 }, H = rows.length * rowH + m.t + m.b;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Share of station towns that lost their railway, by region" }, document.getElementById("regions"));
+  const X = v => m.l + v / 0.6 * (W - m.l - m.r);
+  [0, 0.2, 0.4, 0.6].forEach(t => { el("line", { x1: X(t), x2: X(t), y1: m.t, y2: H - m.b, stroke: "var(--rule)" }, svg); lbl(svg, X(t), H - m.b + 15, Math.round(t * 100) + "%", "lab m s", "middle"); });
+  rows.forEach((r, i) => { const y = m.t + i * rowH;
+    lbl(svg, m.l - 8, y + 16, nar ? r.region.replace("Yorkshire and The Humber", "Yorkshire").replace("East of England", "East") : r.region, nar ? "lab s" : "lab", "end");
+    const b = el("rect", { x: m.l, y: y + 5, width: Math.max(1, X(r.share_lost) - m.l), height: rowH - 10, rx: 2, fill: "var(--hot)" }, svg);
+    hover(b, `<b>${esc(r.region)}</b><br>${r.lost} of ${r.n} station towns lost their railway for good`);
+    lbl(svg, X(r.share_lost) + 6, y + 16, `${Math.round(r.share_lost * 100)}% (${r.n})`, "lab s"); });
+});
+
+/* ===== gaps ===== */
+resp(document.getElementById("gaps"), (W, nar) => {
+  const O = [["pct_65plus", "Aged 65+"], ["pct_no_car", "No car or van"], ["pct_in_work", "Adults in work"], ["pct_sick", "Long-term sick"], ["pct_managerial", "Managerial jobs"]];
+  const rowH = 46, m = { l: nar ? 110 : 150, r: 16, t: 26, b: 30 }, H = (O.length + 1) * rowH + m.t + m.b + 20;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Estimated differences between lost or regained towns and similar kept towns, with 95% intervals" }, document.getElementById("gaps"));
+  const lim = 4, X = v => m.l + (v + lim) / (2 * lim) * (W - m.l - m.r);
+  el("rect", { x: X(-0.25), y: m.t - 6, width: X(0.25) - X(-0.25), height: O.length * rowH + 6, fill: "var(--panel)" }, svg);
+  [-4, -2, 0, 2, 4].forEach(t => { el("line", { x1: X(t), x2: X(t), y1: m.t - 6, y2: m.t + O.length * rowH, stroke: t === 0 ? "var(--fg)" : "var(--rule)" }, svg); lbl(svg, X(t), m.t + O.length * rowH + 14, (t > 0 ? "+" : "") + t + " pts", "lab m s", "middle"); });
+  lbl(svg, m.l, 12, "● lost", "lab s b"); const lg = lbl(svg, m.l + 64, 12, "● regained", "lab s b"); lg.style.fill = "var(--back)"; svg.lastChild.previousSibling.style.fill = "var(--hot)";
+  const row = (y, est, sc, c, txt, unit) => { if (!est) return; const lo = Math.max(-lim, est.lo * sc), hi = Math.min(lim, est.hi * sc), b = est.b * sc;
+    el("line", { x1: X(lo), x2: X(hi), y1: y, y2: y, stroke: c, "stroke-width": 2.5 }, svg);
+    const d = el("circle", { cx: X(Math.max(-lim, Math.min(lim, b))), cy: y, r: 6, fill: c, stroke: "var(--bg)", "stroke-width": 1.5 }, svg);
+    hover(d, `<b>${txt}</b><br>${unit(est.b)} (95% interval ${unit(est.lo)} to ${unit(est.hi)})`); };
+  O.forEach(([k, name], i) => { const y = m.t + i * rowH + 14, e = R.models[k];
+    lbl(svg, m.l - 10, y + 10, name, nar ? "lab s" : "lab", "end");
+    const u = v => (v > 0 ? "+" : "") + (v * 100).toFixed(1) + " pts";
+    row(y, e.size_region_lost, 100, "var(--hot)", `${name}: lost towns`, u); row(y + 14, e.size_region_regained, 100, "var(--back)", `${name}: regained towns`, u); });
+  // income row on its own scale: £ thousands, same width as ±4
+  const y0 = m.t + O.length * rowH + 40, e = R.models.income_fye2023, Xi = v => X(v / 1000);
+  [-4, -2, 0, 2, 4].forEach(t => { el("line", { x1: X(t), x2: X(t), y1: y0 - 10, y2: y0 + 24, stroke: t === 0 ? "var(--fg)" : "var(--rule)" }, svg); lbl(svg, X(t), y0 + 38, (t > 0 ? "+" : t < 0 ? "−" : "") + "£" + Math.abs(t) + "k", "lab m s", "middle"); });
+  lbl(svg, m.l - 10, y0 + 10, "Income", nar ? "lab s" : "lab", "end");
+  const ug = v => (v > 0 ? "+" : "−") + "£" + fmt(Math.abs(v));
+  row(y0, { b: e.size_region_lost.b / 1000, lo: e.size_region_lost.lo / 1000, hi: e.size_region_lost.hi / 1000 }, 1, "var(--hot)", "Household income: lost towns", v => ug(v * 1000));
+  row(y0 + 14, { b: e.size_region_regained.b / 1000, lo: e.size_region_regained.lo / 1000, hi: e.size_region_regained.hi / 1000 }, 1, "var(--back)", "Household income: regained towns", v => ug(v * 1000));
+});
+
+/* ===== tables ===== */
+document.getElementById("losttab").innerHTML = `<thead><tr><th>Town</th><th class="num">2021</th><th class="num">Last closed</th><th class="wide">Stations closed 1955 to 1975</th></tr></thead><tbody>` +
+  R.top_lost.slice(0, 20).map(r => `<tr><td><span class="dot" style="background:var(--hot)"></span>${esc(r.name)}<small>${esc(r.region)}${r.other ? " · other rail: " + esc(r.other.split(";").slice(0, 3).join(";")) : ""}</small></td><td class="num">${fmt(r.pop)}</td><td class="num">${r.last}</td><td class="wide">${esc(r.closed)}</td></tr>`).join("") + "</tbody>";
+document.getElementById("backtab").innerHTML = `<thead><tr><th>Town</th><th class="num">2021</th><th class="wide">Closed 1955 to 1975</th><th>Open today</th></tr></thead><tbody>` +
+  R.top_regained.slice(0, 15).map(r => `<tr><td><span class="dot" style="background:var(--back)"></span>${esc(r.name)}<small>${esc(r.region)}</small></td><td class="num">${fmt(r.pop)}</td><td class="wide">${esc(r.closed)}</td><td>${esc(r.today)}</td></tr>`).join("") + "</tbody>";
+</script>
+</body>
+</html>
