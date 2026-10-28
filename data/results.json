@@ -1,0 +1,2082 @@
+{
+ "stations": {
+  "n_list_pages": 12,
+  "n_list_rows": 6907,
+  "n_list_with_year": 6902,
+  "n_wikidata_only_1955_75": 17,
+  "n_all": 6924,
+  "n_placed": 6451,
+  "share_placed": 0.931686886192952,
+  "placing": {
+   "wikidata_label": 5916,
+   "unplaced": 473,
+   "osm_closed_station_name": 335,
+   "osnames_place": 176,
+   "wikidata_only": 17,
+   "national_rail_name": 7
+  },
+  "wd_items": 9706,
+  "wd_with_close": 952,
+  "wd_year_check_n": 872,
+  "wd_year_exact": 741,
+  "wd_year_share_exact": 0.8497706422018348,
+  "first_year": 1833,
+  "by_year": {
+   "1833": 2,
+   "1834": 1,
+   "1836": 3,
+   "1837": 4,
+   "1838": 1,
+   "1839": 2,
+   "1840": 8,
+   "1841": 4,
+   "1842": 8,
+   "1843": 8,
+   "1844": 25,
+   "1845": 4,
+   "1846": 11,
+   "1847": 13,
+   "1848": 19,
+   "1849": 17,
+   "1850": 20,
+   "1851": 29,
+   "1852": 26,
+   "1853": 15,
+   "1854": 12,
+   "1855": 17,
+   "1856": 10,
+   "1857": 19,
+   "1858": 12,
+   "1859": 22,
+   "1860": 15,
+   "1861": 11,
+   "1862": 16,
+   "1863": 10,
+   "1864": 25,
+   "1865": 17,
+   "1866": 26,
+   "1867": 15,
+   "1868": 13,
+   "1869": 15,
+   "1870": 12,
+   "1871": 24,
+   "1872": 15,
+   "1873": 13,
+   "1874": 9,
+   "1875": 12,
+   "1876": 8,
+   "1877": 12,
+   "1878": 12,
+   "1879": 20,
+   "1880": 11,
+   "1881": 11,
+   "1882": 7,
+   "1883": 9,
+   "1884": 5,
+   "1885": 25,
+   "1886": 12,
+   "1887": 10,
+   "1888": 2,
+   "1889": 3,
+   "1890": 7,
+   "1891": 1,
+   "1892": 8,
+   "1893": 11,
+   "1894": 5,
+   "1895": 9,
+   "1896": 2,
+   "1897": 3,
+   "1898": 12,
+   "1899": 3,
+   "1900": 4,
+   "1901": 3,
+   "1902": 12,
+   "1903": 8,
+   "1904": 12,
+   "1905": 14,
+   "1906": 3,
+   "1907": 7,
+   "1908": 8,
+   "1909": 7,
+   "1910": 5,
+   "1911": 8,
+   "1912": 11,
+   "1913": 6,
+   "1914": 14,
+   "1915": 44,
+   "1916": 39,
+   "1917": 85,
+   "1918": 15,
+   "1919": 5,
+   "1920": 11,
+   "1921": 26,
+   "1922": 14,
+   "1923": 15,
+   "1924": 23,
+   "1925": 29,
+   "1926": 52,
+   "1927": 18,
+   "1928": 22,
+   "1929": 61,
+   "1930": 233,
+   "1931": 158,
+   "1932": 74,
+   "1933": 71,
+   "1934": 26,
+   "1935": 56,
+   "1936": 46,
+   "1937": 36,
+   "1938": 29,
+   "1939": 101,
+   "1940": 56,
+   "1941": 49,
+   "1942": 21,
+   "1943": 30,
+   "1944": 23,
+   "1945": 17,
+   "1946": 13,
+   "1947": 65,
+   "1948": 48,
+   "1949": 39,
+   "1950": 109,
+   "1951": 280,
+   "1952": 220,
+   "1953": 161,
+   "1954": 122,
+   "1955": 160,
+   "1956": 148,
+   "1957": 55,
+   "1958": 168,
+   "1959": 215,
+   "1960": 207,
+   "1961": 136,
+   "1962": 367,
+   "1963": 152,
+   "1964": 556,
+   "1965": 382,
+   "1966": 281,
+   "1967": 129,
+   "1968": 151,
+   "1969": 77,
+   "1970": 91,
+   "1971": 5,
+   "1972": 35,
+   "1973": 10,
+   "1974": 1,
+   "1975": 5,
+   "1976": 9,
+   "1977": 7,
+   "1978": 4,
+   "1979": 3,
+   "1980": 3,
+   "1981": 6,
+   "1982": 2,
+   "1983": 15,
+   "1984": 2,
+   "1985": 10,
+   "1986": 7,
+   "1987": 3,
+   "1988": 6,
+   "1989": 2,
+   "1990": 5,
+   "1991": 3,
+   "1992": 2,
+   "1993": 3,
+   "1994": 8,
+   "1995": 5,
+   "1996": 6,
+   "1997": 8,
+   "1998": 6,
+   "1999": 2,
+   "2002": 1,
+   "2004": 1,
+   "2005": 2,
+   "2006": 5,
+   "2007": 2,
+   "2008": 1,
+   "2009": 6,
+   "2010": 4,
+   "2014": 1,
+   "2017": 1,
+   "2018": 2,
+   "2019": 1,
+   "2022": 1,
+   "2025": 1
+  },
+  "n_1955_75": 3331,
+  "share_1955_75": 0.4814279520161873,
+  "n_1955_75_placed": 3207,
+  "share_1955_75_placed": 0.9627739417592315,
+  "n_1963_70": 1819,
+  "n_1960s": 2438,
+  "peak_year": 1964,
+  "peak_n": 556,
+  "n_before_1955": 3432,
+  "n_after_1975": 156,
+  "n_1930s": 830,
+  "by_decade": {
+   "1830": 13,
+   "1840": 117,
+   "1850": 182,
+   "1860": 163,
+   "1870": 137,
+   "1880": 95,
+   "1890": 61,
+   "1900": 78,
+   "1910": 232,
+   "1920": 271,
+   "1930": 830,
+   "1940": 361,
+   "1950": 1638,
+   "1960": 2438,
+   "1970": 170,
+   "1980": 56,
+   "1990": 48,
+   "2000": 18,
+   "2010": 9,
+   "2020": 2
+  },
+  "n_reopen_noted": 224,
+  "n_reopen_noted_1955_75": 167
+ },
+ "open": {
+  "n_national_rail": 2609,
+  "status": {
+   "open_in_1975": 2267,
+   "new_after_1975": 188,
+   "reopened_after_1975": 154
+  }
+ },
+ "context": {
+  "report_stations": 2363,
+  "report_miles": 5000,
+  "report_date": "27 March 1963",
+  "stations_1960": 4300,
+  "source": "Wikipedia, Beeching cuts (CC BY-SA 4.0), retrieved 28 October 2026"
+ },
+ "towns": {
+  "n_bua_gb": 8535,
+  "n_bua_ew": 4158,
+  "n_sample": 2587,
+  "groups_sample": {
+   "kept": 981,
+   "lost": 643,
+   "regained": 78,
+   "lost_late": 18,
+   "lost_early": 255,
+   "new": 18,
+   "none": 594
+  },
+  "groups_gb": {
+   "kept": 1872,
+   "lost": 1852,
+   "regained": 155,
+   "lost_late": 44,
+   "lost_early": 924,
+   "new": 29,
+   "none": 3659
+  },
+  "groups_scotland": {
+   "kept": 193,
+   "lost": 197,
+   "regained": 35,
+   "lost_late": 7,
+   "lost_early": 142,
+   "new": 3,
+   "none": 245
+  },
+  "n_had_station_1955": 1720,
+  "share_lost_of_had": 0.37383720930232556,
+  "share_lost_or_regained_of_had": 0.4191860465116279,
+  "share_regained_of_lostall": 0.10818307905686546,
+  "by_size": [
+   {
+    "lo": 2000,
+    "hi": 5000,
+    "n": 650,
+    "lost": 325,
+    "regained": 19,
+    "kept": 297,
+    "share_lost": 0.5
+   },
+   {
+    "lo": 5000,
+    "hi": 10000,
+    "n": 358,
+    "lost": 164,
+    "regained": 17,
+    "kept": 173,
+    "share_lost": 0.4581005586592179
+   },
+   {
+    "lo": 10000,
+    "hi": 20000,
+    "n": 340,
+    "lost": 119,
+    "regained": 24,
+    "kept": 195,
+    "share_lost": 0.35
+   },
+   {
+    "lo": 20000,
+    "hi": 50000,
+    "n": 270,
+    "lost": 31,
+    "regained": 14,
+    "kept": 224,
+    "share_lost": 0.11481481481481481
+   },
+   {
+    "lo": 50000,
+    "hi": 100000,
+    "n": 102,
+    "lost": 4,
+    "regained": 4,
+    "kept": 92,
+    "share_lost": 0.0392156862745098
+   }
+  ],
+  "medians": {
+   "kept": {
+    "n": 981,
+    "median_pop": 10901.0,
+    "median_km_city": 15.31
+   },
+   "lost": {
+    "n": 643,
+    "median_pop": 4975.0,
+    "median_km_city": 18.61
+   },
+   "regained": {
+    "n": 78,
+    "median_pop": 11187.5,
+    "median_km_city": 15.145
+   }
+  },
+  "by_region": [
+   {
+    "region": "East Midlands",
+    "n": 168,
+    "lost": 97,
+    "share_lost": 0.5773809523809523
+   },
+   {
+    "region": "South West",
+    "n": 222,
+    "lost": 128,
+    "share_lost": 0.5765765765765766
+   },
+   {
+    "region": "North East",
+    "n": 82,
+    "lost": 40,
+    "share_lost": 0.4878048780487805
+   },
+   {
+    "region": "East of England",
+    "n": 221,
+    "lost": 84,
+    "share_lost": 0.38009049773755654
+   },
+   {
+    "region": "West Midlands",
+    "n": 122,
+    "lost": 46,
+    "share_lost": 0.3770491803278688
+   },
+   {
+    "region": "Wales",
+    "n": 185,
+    "lost": 69,
+    "share_lost": 0.372972972972973
+   },
+   {
+    "region": "Yorkshire and The Humber",
+    "n": 178,
+    "lost": 66,
+    "share_lost": 0.3707865168539326
+   },
+   {
+    "region": "North West",
+    "n": 215,
+    "lost": 50,
+    "share_lost": 0.23255813953488372
+   },
+   {
+    "region": "South East",
+    "n": 326,
+    "lost": 63,
+    "share_lost": 0.19325153374233128
+   },
+   {
+    "region": "London",
+    "n": 1,
+    "lost": 0,
+    "share_lost": 0.0
+   }
+  ],
+  "n_lost_ew_all": 989,
+  "n_lost_ew_10k": 155,
+  "n_lost_ew_20k": 36,
+  "pop_lost_ew": 5691918,
+  "n_lost_other_rail": 58,
+  "top_lost": [
+   {
+    "name": "Kingswood and Fishponds",
+    "pop": 154915,
+    "region": "South West",
+    "closed": "Staple Hill (Bristol) (1966); Oldland Common (1966); Mangotsfield (1966); Fishponds (Bristol) (1966); Warmley (1966)",
+    "last": 1966,
+    "other": "Oldland Common"
+   },
+   {
+    "name": "Sale",
+    "pop": 61867,
+    "region": "North West",
+    "closed": "Baguley (1964); West Timperley (1964)",
+    "last": 1964,
+    "other": ""
+   },
+   {
+    "name": "Dudley (Dudley)",
+    "pop": 59995,
+    "region": "West Midlands",
+    "closed": "Blowers Green (1962); Round Oak (1962); Tipton Five Ways (1962); Baptist End Halt (1964); Dudley (1964); Windmill End Halt (1964); Darby End Halt (1964)",
+    "last": 1964,
+    "other": ""
+   },
+   {
+    "name": "Washington",
+    "pop": 51878,
+    "region": "North East",
+    "closed": "Usworth (1963); Cox Green (1964)",
+    "last": 1964,
+    "other": ""
+   },
+   {
+    "name": "Kingswinford",
+    "pop": 51368,
+    "region": "West Midlands",
+    "closed": "Brettell Lane (1962); Brierley Hill (1962); Round Oak (1962)",
+    "last": 1962,
+    "other": ""
+   },
+   {
+    "name": "Wallsend",
+    "pop": 45961,
+    "region": "North East",
+    "closed": "Carville (1973); Willington Quay (1973); Point Pleasant (1973)",
+    "last": 1973,
+    "other": "Hadrian Road; Hebburn; Howdon; Middle Engine Lane; Palmersville; Percy Main"
+   },
+   {
+    "name": "Leigh (Wigan)",
+    "pop": 43532,
+    "region": "North West",
+    "closed": "Howe Bridge (1959); Hindley Green (1961); West Leigh and Bedford (1964); Park Lane Halt (1964); Leigh (1969)",
+    "last": 1969,
+    "other": ""
+   },
+   {
+    "name": "Arnold",
+    "pop": 39183,
+    "region": "East Midlands",
+    "closed": "Daybrook (1960)",
+    "last": 1960,
+    "other": ""
+   },
+   {
+    "name": "West Bridgford",
+    "pop": 35890,
+    "region": "East Midlands",
+    "closed": "Nottingham Arkwright Street (1969)",
+    "last": 1969,
+    "other": ""
+   },
+   {
+    "name": "Swadlincote",
+    "pop": 33994,
+    "region": "East Midlands",
+    "closed": "Gresley (1964)",
+    "last": 1964,
+    "other": ""
+   },
+   {
+    "name": "Skelmersdale",
+    "pop": 33961,
+    "region": "North West",
+    "closed": "Skelmersdale (1956)",
+    "last": 1956,
+    "other": ""
+   },
+   {
+    "name": "Dunstable",
+    "pop": 33304,
+    "region": "East of England",
+    "closed": "Dunstable North (1965); Dunstable Town (1965)",
+    "last": 1965,
+    "other": ""
+   },
+   {
+    "name": "Radcliffe",
+    "pop": 31804,
+    "region": "North West",
+    "closed": "Radcliffe Bridge (1958); Radcliffe Black Lane (1970)",
+    "last": 1970,
+    "other": ""
+   },
+   {
+    "name": "Heywood",
+    "pop": 30918,
+    "region": "North West",
+    "closed": "Broadfield (1970); Heywood (1970)",
+    "last": 1970,
+    "other": "Heywood"
+   },
+   {
+    "name": "Rushden",
+    "pop": 29611,
+    "region": "East Midlands",
+    "closed": "Rushden (1959); Higham Ferrers (1959); Irchester (1960)",
+    "last": 1960,
+    "other": ""
+   },
+   {
+    "name": "Daventry",
+    "pop": 28127,
+    "region": "East Midlands",
+    "closed": "Daventry (1958)",
+    "last": 1958,
+    "other": ""
+   },
+   {
+    "name": "Consett",
+    "pop": 27578,
+    "region": "North East",
+    "closed": "Blackhill (1955); Consett (1955)",
+    "last": 1955,
+    "other": ""
+   },
+   {
+    "name": "Witney",
+    "pop": 26840,
+    "region": "South East",
+    "closed": "Witney (1962)",
+    "last": 1962,
+    "other": ""
+   },
+   {
+    "name": "Haverhill",
+    "pop": 26431,
+    "region": "East of England",
+    "closed": "Haverhill (1967)",
+    "last": 1967,
+    "other": ""
+   },
+   {
+    "name": "Longbenton",
+    "pop": 25527,
+    "region": "North East",
+    "closed": "Killingworth (1958); Forest Hall (1958)",
+    "last": 1958,
+    "other": "Benton; Four Lane Ends; Longbenton; Palmersville"
+   },
+   {
+    "name": "Portishead",
+    "pop": 25435,
+    "region": "South West",
+    "closed": "Portishead (1964)",
+    "last": 1964,
+    "other": ""
+   },
+   {
+    "name": "Golborne",
+    "pop": 25386,
+    "region": "North West",
+    "closed": "Golborne South (1961); Lowton St Mary's (1964); West Leigh and Bedford (1964)",
+    "last": 1964,
+    "other": ""
+   },
+   {
+    "name": "Wisbech",
+    "pop": 25238,
+    "region": "East of England",
+    "closed": "Wisbech North (1959); Wisbech East (1968)",
+    "last": 1968,
+    "other": ""
+   },
+   {
+    "name": "Newport (Isle of Wight)",
+    "pop": 25120,
+    "region": "South East",
+    "closed": "Shide (Isle of Wight) (1956); Cement Mills Halt (1966); Newport (Isle of Wight) (1966)",
+    "last": 1966,
+    "other": ""
+   },
+   {
+    "name": "Fleetwood",
+    "pop": 24373,
+    "region": "North West",
+    "closed": "Fleetwood (2nd) (1966); Fleetwood (formerly Wyre Dock) (1970); Wyre Dock (1970)",
+    "last": 1970,
+    "other": ""
+   }
+  ],
+  "n_regained_ew": 99,
+  "top_regained": [
+   {
+    "name": "Corby",
+    "pop": 67661,
+    "region": "East Midlands",
+    "closed": "Corby (1967)",
+    "last": 1967,
+    "other": "",
+    "today": "Corby"
+   },
+   {
+    "name": "Mansfield",
+    "pop": 61294,
+    "region": "East Midlands",
+    "closed": "Mansfield Central (1956); Mansfield Woodhouse (1964); Mansfield Town (1964)",
+    "last": 1964,
+    "other": "",
+    "today": "Mansfield Woodhouse; Mansfield"
+   },
+   {
+    "name": "Cannock",
+    "pop": 60944,
+    "region": "West Midlands",
+    "closed": "Cannock (1965); Hednesford (1965)",
+    "last": 1965,
+    "other": "",
+    "today": "Hednesford; Cannock"
+   },
+   {
+    "name": "Bloxwich",
+    "pop": 51946,
+    "region": "West Midlands",
+    "closed": "Bloxwich (1965); Pelsall (1965)",
+    "last": 1965,
+    "other": "",
+    "today": "Bloxwich North; Bloxwich"
+   },
+   {
+    "name": "Cwmbr\u00e2n",
+    "pop": 44258,
+    "region": "Wales",
+    "closed": "Lower Pontnewydd (1958); Upper Pontnewydd (1962); Sebastopol (1962); Cwmbran (GWR) (1962); Pontrhydyrun Halt (1962)",
+    "last": 1962,
+    "other": "",
+    "today": "Cwmbran"
+   },
+   {
+    "name": "Ilkeston",
+    "pop": 39379,
+    "region": "East Midlands",
+    "closed": "Ilkeston North (1964); Trowell (1967); Ilkeston Junction and Cossall (1967)",
+    "last": 1967,
+    "other": "",
+    "today": "Ilkeston"
+   },
+   {
+    "name": "Blyth (Northumberland)",
+    "pop": 38691,
+    "region": "North East",
+    "closed": "Bebside (1964); Newsham (1964); Blyth (1964)",
+    "last": 1964,
+    "other": "",
+    "today": "Newsham; Blyth Bebside"
+   },
+   {
+    "name": "Sutton in Ashfield",
+    "pop": 37757,
+    "region": "East Midlands",
+    "closed": "Sutton-in-Ashfield Central (1956); Sutton Junction (1964)",
+    "last": 1964,
+    "other": "",
+    "today": "Sutton Parkway"
+   },
+   {
+    "name": "Aberdare",
+    "pop": 37589,
+    "region": "Wales",
+    "closed": "Abernant (1962); Aberdare Low Level (1964); Aberaman (1964); Cwmbach Halt (1964); Trecynon Halt (1964); Aberdare High Level (1964)",
+    "last": 1964,
+    "other": "",
+    "today": "Cwmbach; Aberdare"
+   },
+   {
+    "name": "Wigston",
+    "pop": 35337,
+    "region": "East Midlands",
+    "closed": "Wigston South (1962); Wigston Glen Parva (1968); Wigston Magna (1968)",
+    "last": 1968,
+    "other": "",
+    "today": "South Wigston"
+   },
+   {
+    "name": "Brighouse",
+    "pop": 32643,
+    "region": "Yorkshire and The Humber",
+    "closed": "Lightcliffe (1965); Brighouse (1970)",
+    "last": 1970,
+    "other": "",
+    "today": "Brighouse"
+   },
+   {
+    "name": "Chandler's Ford",
+    "pop": 30209,
+    "region": "South East",
+    "closed": "Chandlers Ford (1969)",
+    "last": 1969,
+    "other": "",
+    "today": "Chandlers Ford"
+   },
+   {
+    "name": "Bedworth",
+    "pop": 29151,
+    "region": "West Midlands",
+    "closed": "Bedworth (1965); Hawkesbury Lane (1965)",
+    "last": 1965,
+    "other": "",
+    "today": "Bedworth"
+   },
+   {
+    "name": "Ashington (Northumberland)",
+    "pop": 28281,
+    "region": "North East",
+    "closed": "North Seaton (1964); Ashington (1964)",
+    "last": 1964,
+    "other": "Lakeside Halt; Museum Halt",
+    "today": "Ashington"
+   },
+   {
+    "name": "Yate",
+    "pop": 27943,
+    "region": "South West",
+    "closed": "Yate (1965)",
+    "last": 1965,
+    "other": "",
+    "today": "Yate"
+   },
+   {
+    "name": "Heanor",
+    "pop": 22944,
+    "region": "East Midlands",
+    "closed": "Eastwood and Langley Mill (1963); Langley Mill & Eastwood (1967)",
+    "last": 1967,
+    "other": "",
+    "today": "Langley Mill"
+   },
+   {
+    "name": "Kenilworth",
+    "pop": 22036,
+    "region": "West Midlands",
+    "closed": "Kenilworth (1965)",
+    "last": 1965,
+    "other": "",
+    "today": "Kenilworth"
+   },
+   {
+    "name": "Ebbw Vale",
+    "pop": 20036,
+    "region": "Wales",
+    "closed": "Trevil Halt (1958); Beaufort (1958); Sirhowy (1960); Ebbw Vale (Low Level) (1962)",
+    "last": 1962,
+    "other": "",
+    "today": "Ebbw Vale Town"
+   },
+   {
+    "name": "Kirkby-in-Ashfield",
+    "pop": 19679,
+    "region": "East Midlands",
+    "closed": "Kirkby-in-Ashfield Central (1956); Kirkby Bentinck (1963); Kirkby-in-Ashfield East (1964)",
+    "last": 1964,
+    "other": "",
+    "today": "Kirkby in Ashfield; Sutton Parkway"
+   },
+   {
+    "name": "Adwick le Street",
+    "pop": 18684,
+    "region": "Yorkshire and The Humber",
+    "closed": "Carcroft and Adwick-le-Street (1967)",
+    "last": 1967,
+    "other": "",
+    "today": "Adwick"
+   },
+   {
+    "name": "Maesteg",
+    "pop": 18555,
+    "region": "Wales",
+    "closed": "Maesteg Castle Street (1970); Nantyffyllon (1970); Troedyrhiew Garth (1970)",
+    "last": 1970,
+    "other": "",
+    "today": "Garth (Mid Glamorgan); Maesteg (Ewenny Road); Maesteg"
+   },
+   {
+    "name": "Mansfield Woodhouse",
+    "pop": 18534,
+    "region": "East Midlands",
+    "closed": "Mansfield Woodhouse (1964)",
+    "last": 1964,
+    "other": "",
+    "today": "Mansfield Woodhouse"
+   },
+   {
+    "name": "Melksham",
+    "pop": 18347,
+    "region": "South West",
+    "closed": "Melksham (1966)",
+    "last": 1966,
+    "other": "",
+    "today": "Melksham"
+   },
+   {
+    "name": "Bedlington",
+    "pop": 17319,
+    "region": "North East",
+    "closed": "Bedlington (1964)",
+    "last": 1964,
+    "other": "",
+    "today": "Bedlington"
+   },
+   {
+    "name": "Clitheroe",
+    "pop": 17139,
+    "region": "North West",
+    "closed": "Clitheroe (1962)",
+    "last": 1962,
+    "other": "",
+    "today": "Clitheroe"
+   }
+  ],
+  "scotland_regained": [
+   "Alloa",
+   "Armadale",
+   "Bargeddie",
+   "Beauly",
+   "Blackridge",
+   "Bonnyrigg",
+   "Bridge of Allan",
+   "Buckhaven",
+   "Caldercruix",
+   "Camelon",
+   "Dalkeith",
+   "Danderhall",
+   "Darnick",
+   "East Linton",
+   "Galashiels",
+   "Gartcosh",
+   "Gorebridge and Mayfield",
+   "Howwood",
+   "Kilbarchan",
+   "Kintore",
+   "Larkhall",
+   "Laurencekirk",
+   "Leven (Fife)",
+   "Livingston",
+   "Methil",
+   "Muir of Ord",
+   "Musselburgh",
+   "New Cumnock",
+   "Portlethen",
+   "Sanquhar",
+   "Stepps",
+   "Stow (Scottish Borders)",
+   "Thornton (Fife)",
+   "Uphall",
+   "Windygates"
+  ],
+  "km_city_lost_vs_kept": 3.299999999999999
+ },
+ "outcomes": {
+  "labels": {
+   "pct_65plus": "Aged 65 or over",
+   "pct_no_car": "Households without a car or van",
+   "pct_in_work": "Adults (16+) in work",
+   "pct_sick": "Adults long-term sick or disabled",
+   "pct_managerial": "Adults in managerial or professional jobs",
+   "income_fye2023": "Mean household income (MSOA, FYE2023)"
+  },
+  "median": {
+   "kept": {
+    "n": 981,
+    "pct_65plus": 0.2158,
+    "pct_65plus_n": 981,
+    "pct_no_car": 0.1609,
+    "pct_no_car_n": 981,
+    "pct_in_work": 0.5683,
+    "pct_in_work_n": 981,
+    "pct_sick": 0.0353,
+    "pct_sick_n": 981,
+    "pct_managerial": 0.3634,
+    "pct_managerial_n": 981,
+    "income_fye2023": 51230.0,
+    "income_fye2023_n": 749
+   },
+   "lost": {
+    "n": 643,
+    "pct_65plus": 0.2351,
+    "pct_65plus_n": 643,
+    "pct_no_car": 0.1357,
+    "pct_no_car_n": 643,
+    "pct_in_work": 0.561,
+    "pct_in_work_n": 643,
+    "pct_sick": 0.0335,
+    "pct_sick_n": 643,
+    "pct_managerial": 0.3541,
+    "pct_managerial_n": 643,
+    "income_fye2023": 49477.5,
+    "income_fye2023_n": 390
+   },
+   "regained": {
+    "n": 78,
+    "pct_65plus": 0.21175,
+    "pct_65plus_n": 78,
+    "pct_no_car": 0.1709,
+    "pct_no_car_n": 78,
+    "pct_in_work": 0.5667500000000001,
+    "pct_in_work_n": 78,
+    "pct_sick": 0.039099999999999996,
+    "pct_sick_n": 78,
+    "pct_managerial": 0.30920000000000003,
+    "pct_managerial_n": 78,
+    "income_fye2023": 45557.0,
+    "income_fye2023_n": 59
+   },
+   "lost_early": {
+    "n": 255,
+    "pct_65plus": 0.2336,
+    "pct_65plus_n": 255,
+    "pct_no_car": 0.1351,
+    "pct_no_car_n": 255,
+    "pct_in_work": 0.5604,
+    "pct_in_work_n": 255,
+    "pct_sick": 0.0348,
+    "pct_sick_n": 255,
+    "pct_managerial": 0.3428,
+    "pct_managerial_n": 255,
+    "income_fye2023": 51228.0,
+    "income_fye2023_n": 129
+   },
+   "none": {
+    "n": 594,
+    "pct_65plus": 0.23795,
+    "pct_65plus_n": 594,
+    "pct_no_car": 0.094,
+    "pct_no_car_n": 594,
+    "pct_in_work": 0.5739000000000001,
+    "pct_in_work_n": 594,
+    "pct_sick": 0.02635,
+    "pct_sick_n": 594,
+    "pct_managerial": 0.40335,
+    "pct_managerial_n": 594,
+    "income_fye2023": 58427.5,
+    "income_fye2023_n": 228
+   }
+  },
+  "matched_lost": {
+   "pct_65plus": {
+    "n": 643,
+    "diff": 0.0050824261275272155,
+    "lo": -0.0009832776049766717,
+    "hi": 0.01110192457231726,
+    "share_higher": 0.49611197511664074
+   },
+   "pct_no_car": {
+    "n": 643,
+    "diff": -0.00824059097978227,
+    "lo": -0.014061496889580095,
+    "hi": -0.0025003965785381018,
+    "share_higher": 0.4463452566096423
+   },
+   "pct_in_work": {
+    "n": 643,
+    "diff": 0.0011850699844478997,
+    "lo": -0.005091123639191291,
+    "hi": 0.007876271384136855,
+    "share_higher": 0.5241057542768274
+   },
+   "pct_sick": {
+    "n": 643,
+    "diff": -0.0002730948678071539,
+    "lo": -0.0022413102643856924,
+    "hi": 0.0016709564541213043,
+    "share_higher": 0.5147744945567652
+   },
+   "pct_managerial": {
+    "n": 643,
+    "diff": -0.012244323483670296,
+    "lo": -0.02211001944012442,
+    "hi": -0.0026846423017107333,
+    "share_higher": 0.4447900466562986
+   },
+   "income_fye2023": {
+    "n": 389,
+    "diff": -1223.4087403598971,
+    "lo": -2434.3005141388176,
+    "hi": -4.079048843188913,
+    "share_higher": 0.46786632390745503
+   }
+  },
+  "matched_regained": {
+   "pct_65plus": {
+    "n": 78,
+    "diff": -0.007102564102564102,
+    "lo": -0.020359166666666664,
+    "hi": 0.0062961858974358974,
+    "share_higher": 0.46153846153846156
+   },
+   "pct_no_car": {
+    "n": 78,
+    "diff": -0.022874358974358973,
+    "lo": -0.040504711538461545,
+    "hi": -0.006898557692307689,
+    "share_higher": 0.41025641025641024
+   },
+   "pct_in_work": {
+    "n": 78,
+    "diff": 0.018099999999999998,
+    "lo": 0.002118012820512831,
+    "hi": 0.03486826923076923,
+    "share_higher": 0.5128205128205128
+   },
+   "pct_sick": {
+    "n": 78,
+    "diff": -0.00212051282051282,
+    "lo": -0.008662884615384614,
+    "hi": 0.0038969551282051255,
+    "share_higher": 0.5256410256410257
+   },
+   "pct_managerial": {
+    "n": 78,
+    "diff": 0.002788461538461536,
+    "lo": -0.022747051282051286,
+    "hi": 0.02797195512820511,
+    "share_higher": 0.5512820512820513
+   },
+   "income_fye2023": {
+    "n": 59,
+    "diff": 169.33898305084745,
+    "lo": -2116.3012711864408,
+    "hi": 2460.3411016949153,
+    "share_higher": 0.559322033898305
+   }
+  },
+  "matched_regained_vs_lost": {
+   "pct_65plus": {
+    "n": 72,
+    "diff": -0.018616666666666663,
+    "lo": -0.03294184027777778,
+    "hi": -0.004914756944444454,
+    "share_higher": 0.4861111111111111
+   },
+   "pct_no_car": {
+    "n": 72,
+    "diff": -0.0033888888888888914,
+    "lo": -0.020700069444444448,
+    "hi": 0.013006006944444433,
+    "share_higher": 0.4583333333333333
+   },
+   "pct_in_work": {
+    "n": 72,
+    "diff": 0.014337500000000003,
+    "lo": 9.274305555555155e-05,
+    "hi": 0.029107048611111117,
+    "share_higher": 0.5833333333333334
+   },
+   "pct_sick": {
+    "n": 72,
+    "diff": 0.0022152777777777774,
+    "lo": -0.0030955208333333334,
+    "hi": 0.007737743055555555,
+    "share_higher": 0.5555555555555556
+   },
+   "pct_managerial": {
+    "n": 72,
+    "diff": -0.00836805555555556,
+    "lo": -0.033415173611111106,
+    "hi": 0.019033333333333305,
+    "share_higher": 0.4444444444444444
+   },
+   "income_fye2023": {
+    "n": 53,
+    "diff": -900.1698113207547,
+    "lo": -3688.0721698113207,
+    "hi": 1774.8268867924521,
+    "share_higher": 0.4716981132075472
+   }
+  },
+  "models": {
+   "pct_65plus": {
+    "size_region_lost": {
+     "b": 0.002922798275804068,
+     "lo": -0.0031673640286312707,
+     "hi": 0.009012960580239406,
+     "p": 0.34689534544329825
+    },
+    "size_region_regained": {
+     "b": -0.014639261975605208,
+     "lo": -0.025405263243626526,
+     "hi": -0.0038732607075838924,
+     "p": 0.007696636238087529
+    },
+    "size_region_n": 1702,
+    "plus_remote_lost": {
+     "b": 0.0027343840397590622,
+     "lo": -0.0032435299526746646,
+     "hi": 0.008712298032192789,
+     "p": 0.3699773551868235
+    },
+    "plus_remote_regained": {
+     "b": -0.01100735850810538,
+     "lo": -0.021591131520430552,
+     "hi": -0.0004235854957802092,
+     "p": 0.041509348360007046
+    },
+    "plus_remote_n": 1702
+   },
+   "pct_no_car": {
+    "size_region_lost": {
+     "b": -0.00791654774233995,
+     "lo": -0.013583934052006554,
+     "hi": -0.0022491614326733437,
+     "p": 0.006185240092934153
+    },
+    "size_region_regained": {
+     "b": -0.01572227883569618,
+     "lo": -0.027107057781194988,
+     "hi": -0.004337499890197374,
+     "p": 0.006795709019937966
+    },
+    "size_region_n": 1702,
+    "plus_remote_lost": {
+     "b": -0.00808200486366283,
+     "lo": -0.013648910783803503,
+     "hi": -0.0025150989435221583,
+     "p": 0.004434657010557903
+    },
+    "plus_remote_regained": {
+     "b": -0.012532900446516426,
+     "lo": -0.02358713991910546,
+     "hi": -0.0014786609739273933,
+     "p": 0.026274054826137268
+    },
+    "plus_remote_n": 1702
+   },
+   "pct_in_work": {
+    "size_region_lost": {
+     "b": 0.0013998649184503828,
+     "lo": -0.004996218245769093,
+     "hi": 0.0077959480826698575,
+     "p": 0.6679499463517945
+    },
+    "size_region_regained": {
+     "b": 0.022379947793960953,
+     "lo": 0.009678993439576795,
+     "hi": 0.03508090214834511,
+     "p": 0.0005531772493333421
+    },
+    "size_region_n": 1702,
+    "plus_remote_lost": {
+     "b": 0.0016170334717339244,
+     "lo": -0.004599366888614677,
+     "hi": 0.007833433832082527,
+     "p": 0.6101683153223003
+    },
+    "plus_remote_regained": {
+     "b": 0.018193771429269704,
+     "lo": 0.006051927276700557,
+     "hi": 0.03033561558183885,
+     "p": 0.003315325851695805
+    },
+    "plus_remote_n": 1702
+   },
+   "pct_sick": {
+    "size_region_lost": {
+     "b": -0.0002813838962999032,
+     "lo": -0.0021310969019899878,
+     "hi": 0.0015683291093901812,
+     "p": 0.7655844027317835
+    },
+    "size_region_regained": {
+     "b": 0.0005431350111222113,
+     "lo": -0.0035566414757025465,
+     "hi": 0.004642911497946969,
+     "p": 0.7951303592403561
+    },
+    "size_region_n": 1702,
+    "plus_remote_lost": {
+     "b": -0.00032591472806075314,
+     "lo": -0.0021518411566297134,
+     "hi": 0.0015000117005082073,
+     "p": 0.7264591777534561
+    },
+    "plus_remote_regained": {
+     "b": 0.001401518568956547,
+     "lo": -0.0026031716248998346,
+     "hi": 0.005406208762812928,
+     "p": 0.49275901896659857
+    },
+    "plus_remote_n": 1702
+   },
+   "pct_managerial": {
+    "size_region_lost": {
+     "b": -0.013372120718878416,
+     "lo": -0.022623438032164652,
+     "hi": -0.004120803405592181,
+     "p": 0.004611505360212569
+    },
+    "size_region_regained": {
+     "b": -0.009306625242414133,
+     "lo": -0.028714928869604684,
+     "hi": 0.010101678384776418,
+     "p": 0.3473009537172861
+    },
+    "size_region_n": 1702,
+    "plus_remote_lost": {
+     "b": -0.01293869139926205,
+     "lo": -0.02168916285251632,
+     "hi": -0.004188219946007779,
+     "p": 0.003754817808100544
+    },
+    "plus_remote_regained": {
+     "b": -0.017661479322843107,
+     "lo": -0.03613559862366897,
+     "hi": 0.0008126399779827542,
+     "p": 0.06096502262476343
+    },
+    "plus_remote_n": 1702
+   },
+   "income_fye2023": {
+    "size_region_lost": {
+     "b": -1612.555097888775,
+     "lo": -2757.2473506292454,
+     "hi": -467.8628451483047,
+     "p": 0.005761626019513273
+    },
+    "size_region_regained": {
+     "b": -836.0936451240586,
+     "lo": -2714.4269723060147,
+     "hi": 1042.2396820578974,
+     "p": 0.38297410523890063
+    },
+    "size_region_n": 1198,
+    "plus_remote_lost": {
+     "b": -1479.6173479148358,
+     "lo": -2540.6150133237356,
+     "hi": -418.61968250593605,
+     "p": 0.006270825297107388
+    },
+    "plus_remote_regained": {
+     "b": -1348.2118629915954,
+     "lo": -3104.1475387080436,
+     "hi": 407.7238127248528,
+     "p": 0.1323587071056914
+    },
+    "plus_remote_n": 1198
+   }
+  }
+ },
+ "checks": {
+  "r1km": {
+   "n_lost": 531,
+   "n_kept": 842,
+   "models": {
+    "pct_65plus": {
+     "size_region_lost": {
+      "b": 0.0032000859158766684,
+      "lo": -0.003332385278889309,
+      "hi": 0.009732557110642645,
+      "p": 0.3369873591801983
+     },
+     "size_region_n": 1373,
+     "plus_remote_lost": {
+      "b": 0.003352192014781339,
+      "lo": -0.003041153221527714,
+      "hi": 0.009745537251090392,
+      "p": 0.30411049250204547
+     },
+     "plus_remote_n": 1373
+    },
+    "pct_no_car": {
+     "size_region_lost": {
+      "b": -0.005504200521383808,
+      "lo": -0.011540305203371888,
+      "hi": 0.0005319041606042709,
+      "p": 0.07389691219451272
+     },
+     "size_region_n": 1373,
+     "plus_remote_lost": {
+      "b": -0.005366823699317219,
+      "lo": -0.011261783881563913,
+      "hi": 0.0005281364829294744,
+      "p": 0.07436380875038279
+     },
+     "plus_remote_n": 1373
+    },
+    "pct_in_work": {
+     "size_region_lost": {
+      "b": -0.00012066258513750035,
+      "lo": -0.006959513380713128,
+      "hi": 0.006718188210438127,
+      "p": 0.9724138497005345
+     },
+     "size_region_n": 1373,
+     "plus_remote_lost": {
+      "b": -0.000291336692847702,
+      "lo": -0.006915686116427631,
+      "hi": 0.006333012730732228,
+      "p": 0.9313085701093641
+     },
+     "plus_remote_n": 1373
+    },
+    "pct_sick": {
+     "size_region_lost": {
+      "b": 0.0014195473018502407,
+      "lo": -0.0005425752138381204,
+      "hi": 0.003381669817538602,
+      "p": 0.1561949521178715
+     },
+     "size_region_n": 1373,
+     "plus_remote_lost": {
+      "b": 0.0014545747003696713,
+      "lo": -0.00047529360393097565,
+      "hi": 0.003384443004670318,
+      "p": 0.13960640372370153
+     },
+     "plus_remote_n": 1373
+    },
+    "pct_managerial": {
+     "size_region_lost": {
+      "b": -0.020456107891672605,
+      "lo": -0.030319534515857453,
+      "hi": -0.010592681267487757,
+      "p": 4.806576537572028e-05
+     },
+     "size_region_n": 1373,
+     "plus_remote_lost": {
+      "b": -0.02079587008258676,
+      "lo": -0.030031347573322573,
+      "hi": -0.01156039259185095,
+      "p": 1.0179537869271241e-05
+     },
+     "plus_remote_n": 1373
+    },
+    "income_fye2023": {
+     "size_region_lost": {
+      "b": -2201.1858050176206,
+      "lo": -3401.384153293584,
+      "hi": -1000.9874567416576,
+      "p": 0.00032487795088774674
+     },
+     "size_region_n": 1031,
+     "plus_remote_lost": {
+      "b": -2103.589049783456,
+      "lo": -3220.880429801994,
+      "hi": -986.2976697649186,
+      "p": 0.00022413290578789924
+     },
+     "plus_remote_n": 1031
+    }
+   }
+  },
+  "r3km": {
+   "n_lost": 690,
+   "n_kept": 1215,
+   "models": {
+    "pct_65plus": {
+     "size_region_lost": {
+      "b": 0.010013785537979339,
+      "lo": 0.004093993189711258,
+      "hi": 0.01593357788624742,
+      "p": 0.0009150215167641473
+     },
+     "size_region_n": 1905,
+     "plus_remote_lost": {
+      "b": 0.008682649212284465,
+      "lo": 0.002832457853011657,
+      "hi": 0.014532840571557272,
+      "p": 0.003626913340747857
+     },
+     "plus_remote_n": 1905
+    },
+    "pct_no_car": {
+     "size_region_lost": {
+      "b": -0.006073462942964254,
+      "lo": -0.011085348967101184,
+      "hi": -0.0010615769188273248,
+      "p": 0.017543834720557837
+     },
+     "size_region_n": 1905,
+     "plus_remote_lost": {
+      "b": -0.0071165205678280375,
+      "lo": -0.012029793825410487,
+      "hi": -0.002203247310245589,
+      "p": 0.004527417628208288
+     },
+     "plus_remote_n": 1905
+    },
+    "pct_in_work": {
+     "size_region_lost": {
+      "b": -0.00479173145245274,
+      "lo": -0.011024215995570113,
+      "hi": 0.0014407530906646324,
+      "p": 0.13184081154858374
+     },
+     "size_region_n": 1905,
+     "plus_remote_lost": {
+      "b": -0.0033279561795870067,
+      "lo": -0.00943320798401584,
+      "hi": 0.0027772956248418267,
+      "p": 0.28535317248827974
+     },
+     "plus_remote_n": 1905
+    },
+    "pct_sick": {
+     "size_region_lost": {
+      "b": -0.0007671287843026429,
+      "lo": -0.002419307909933605,
+      "hi": 0.0008850503413283193,
+      "p": 0.3628027885155579
+     },
+     "size_region_n": 1905,
+     "plus_remote_lost": {
+      "b": -0.0010674825603907202,
+      "lo": -0.0026911020739983577,
+      "hi": 0.0005561369532169171,
+      "p": 0.19753048505889725
+     },
+     "plus_remote_n": 1905
+    },
+    "pct_managerial": {
+     "size_region_lost": {
+      "b": -0.013980282909671368,
+      "lo": -0.022530986687068523,
+      "hi": -0.0054295791322742145,
+      "p": 0.0013529065384527527
+     },
+     "size_region_n": 1905,
+     "plus_remote_lost": {
+      "b": -0.010905082027079724,
+      "lo": -0.018959029799534136,
+      "hi": -0.002851134254625312,
+      "p": 0.007959094390854172
+     },
+     "plus_remote_n": 1905
+    },
+    "income_fye2023": {
+     "size_region_lost": {
+      "b": -2152.3987358020922,
+      "lo": -3252.687614007758,
+      "hi": -1052.109857596427,
+      "p": 0.000126021879304663
+     },
+     "size_region_n": 1252,
+     "plus_remote_lost": {
+      "b": -1757.2551350696026,
+      "lo": -2776.280632619821,
+      "hi": -738.229637519384,
+      "p": 0.0007252450671842224
+     },
+     "plus_remote_n": 1252
+    }
+   }
+  },
+  "no_other_rail": {
+   "n_lost": 585,
+   "models": {
+    "pct_65plus": {
+     "size_region_lost": {
+      "b": 0.0012422112670326833,
+      "lo": -0.005032292489774677,
+      "hi": 0.007516715023840044,
+      "p": 0.6979945815175908
+     },
+     "size_region_n": 1566,
+     "plus_remote_lost": {
+      "b": 0.0012752245354990428,
+      "lo": -0.004899998224631217,
+      "hi": 0.007450447295629303,
+      "p": 0.6856645291623595
+     },
+     "plus_remote_n": 1566
+    },
+    "pct_no_car": {
+     "size_region_lost": {
+      "b": -0.008082992460243457,
+      "lo": -0.01394830425783131,
+      "hi": -0.0022176806626556037,
+      "p": 0.006912542252529789
+     },
+     "size_region_n": 1566,
+     "plus_remote_lost": {
+      "b": -0.008054558718436177,
+      "lo": -0.013819908138564322,
+      "hi": -0.0022892092983080314,
+      "p": 0.006177762765483601
+     },
+     "plus_remote_n": 1566
+    },
+    "pct_in_work": {
+     "size_region_lost": {
+      "b": 0.0027018649003355197,
+      "lo": -0.003871060782934566,
+      "hi": 0.009274790583605606,
+      "p": 0.42043763918897326
+     },
+     "size_region_n": 1566,
+     "plus_remote_lost": {
+      "b": 0.0026655612438322264,
+      "lo": -0.003744338085716235,
+      "hi": 0.009075460573380687,
+      "p": 0.4150422983284544
+     },
+     "plus_remote_n": 1566
+    },
+    "pct_sick": {
+     "size_region_lost": {
+      "b": -0.00033782062065147717,
+      "lo": -0.0022664369255116106,
+      "hi": 0.0015907956842086562,
+      "p": 0.7313640938950248
+     },
+     "size_region_n": 1566,
+     "plus_remote_lost": {
+      "b": -0.000330703695609518,
+      "lo": -0.0022383678739502284,
+      "hi": 0.0015769604827311923,
+      "p": 0.7340296331959903
+     },
+     "plus_remote_n": 1566
+    },
+    "pct_managerial": {
+     "size_region_lost": {
+      "b": -0.013750372301093907,
+      "lo": -0.023343772614359104,
+      "hi": -0.004156971987828712,
+      "p": 0.004965747687108563
+     },
+     "size_region_n": 1566,
+     "plus_remote_lost": {
+      "b": -0.0138260013867623,
+      "lo": -0.022910891453454672,
+      "hi": -0.004741111320069928,
+      "p": 0.0028561895623337406
+     },
+     "plus_remote_n": 1566
+    },
+    "income_fye2023": {
+     "size_region_lost": {
+      "b": -1566.277606551835,
+      "lo": -2764.78276516783,
+      "hi": -367.7724479358402,
+      "p": 0.01042521039362169
+     },
+     "size_region_n": 1093,
+     "plus_remote_lost": {
+      "b": -1470.4298787461573,
+      "lo": -2576.775821796857,
+      "hi": -364.0839356954575,
+      "p": 0.009188433767067914
+     },
+     "plus_remote_n": 1093
+    }
+   }
+  },
+  "over5k": {
+   "n_lost": 318,
+   "n_kept": 684,
+   "models": {
+    "pct_65plus": {
+     "size_region_lost": {
+      "b": 0.0017922802531268136,
+      "lo": -0.00542562293267196,
+      "hi": 0.009010183438925587,
+      "p": 0.6264855503436919
+     },
+     "size_region_n": 1002,
+     "plus_remote_lost": {
+      "b": 0.002594707259402561,
+      "lo": -0.004588033637769599,
+      "hi": 0.009777448156574721,
+      "p": 0.4789320967292613
+     },
+     "plus_remote_n": 1002
+    },
+    "pct_no_car": {
+     "size_region_lost": {
+      "b": -0.009380395518441107,
+      "lo": -0.016967861285601314,
+      "hi": -0.0017929297512808999,
+      "p": 0.015388415943688413
+     },
+     "size_region_n": 1002,
+     "plus_remote_lost": {
+      "b": -0.008135959404702086,
+      "lo": -0.01552654462561925,
+      "hi": -0.0007453741837849205,
+      "p": 0.030956199464118997
+     },
+     "plus_remote_n": 1002
+    },
+    "pct_in_work": {
+     "size_region_lost": {
+      "b": 0.004220947747613506,
+      "lo": -0.003441581277631137,
+      "hi": 0.01188347677285815,
+      "p": 0.2802948053962626
+     },
+     "size_region_n": 1002,
+     "plus_remote_lost": {
+      "b": 0.003125637586368564,
+      "lo": -0.004394561519111334,
+      "hi": 0.010645836691848461,
+      "p": 0.41528738393508047
+     },
+     "plus_remote_n": 1002
+    },
+    "pct_sick": {
+     "size_region_lost": {
+      "b": 8.12397316239735e-06,
+      "lo": -0.002361199067783141,
+      "hi": 0.002377447014107936,
+      "p": 0.9946379718987114
+     },
+     "size_region_n": 1002,
+     "plus_remote_lost": {
+      "b": 0.00037185898886788545,
+      "lo": -0.0019368430738503598,
+      "hi": 0.002680561051586131,
+      "p": 0.7522391094356305
+     },
+     "plus_remote_n": 1002
+    },
+    "pct_managerial": {
+     "size_region_lost": {
+      "b": -0.01345065498944532,
+      "lo": -0.025719850226980683,
+      "hi": -0.0011814597519099572,
+      "p": 0.03165832097046974
+     },
+     "size_region_n": 1002,
+     "plus_remote_lost": {
+      "b": -0.016141386561203452,
+      "lo": -0.027761159147004163,
+      "hi": -0.004521613975402742,
+      "p": 0.006476125949480313
+     },
+     "plus_remote_n": 1002
+    },
+    "income_fye2023": {
+     "size_region_lost": {
+      "b": -1348.1127141360864,
+      "lo": -2628.481478597879,
+      "hi": -67.74394967429399,
+      "p": 0.03904947813193567
+     },
+     "size_region_n": 955,
+     "plus_remote_lost": {
+      "b": -1606.86532996807,
+      "lo": -2808.4944026479798,
+      "hi": -405.23625728816006,
+      "p": 0.008768759199514392
+     },
+     "plus_remote_n": 955
+    }
+   }
+  },
+  "away_from_cities": {
+   "n_lost": 404,
+   "n_kept": 501,
+   "models": {
+    "pct_65plus": {
+     "size_region_lost": {
+      "b": -0.0013506386437431698,
+      "lo": -0.009786354197020912,
+      "hi": 0.007085076909534574,
+      "p": 0.7536661412195303
+     },
+     "size_region_n": 905,
+     "plus_remote_lost": {
+      "b": 6.156744983691007e-05,
+      "lo": -0.00827214675708654,
+      "hi": 0.008395281656760359,
+      "p": 0.9884472456425473
+     },
+     "plus_remote_n": 905
+    },
+    "pct_no_car": {
+     "size_region_lost": {
+      "b": -0.010646624885089181,
+      "lo": -0.018026782416076668,
+      "hi": -0.0032664673541016936,
+      "p": 0.004692083999395253
+     },
+     "size_region_n": 905,
+     "plus_remote_lost": {
+      "b": -0.008700628646002835,
+      "lo": -0.015844458831929486,
+      "hi": -0.0015567984600761836,
+      "p": 0.01698263599935018
+     },
+     "plus_remote_n": 905
+    },
+    "pct_in_work": {
+     "size_region_lost": {
+      "b": 0.004447232529717551,
+      "lo": -0.0047034873889016645,
+      "hi": 0.013597952448336767,
+      "p": 0.3408238081899543
+     },
+     "size_region_n": 905,
+     "plus_remote_lost": {
+      "b": 0.0026133773362530615,
+      "lo": -0.006360984498000129,
+      "hi": 0.011587739170506253,
+      "p": 0.56816848278339
+     },
+     "plus_remote_n": 905
+    },
+    "pct_sick": {
+     "size_region_lost": {
+      "b": -0.0008140277060735652,
+      "lo": -0.0033427894844686662,
+      "hi": 0.0017147340723215358,
+      "p": 0.5280880231525549
+     },
+     "size_region_n": 905,
+     "plus_remote_lost": {
+      "b": -0.000604456795349781,
+      "lo": -0.0031448940209987753,
+      "hi": 0.0019359804302992133,
+      "p": 0.6409704461639936
+     },
+     "plus_remote_n": 905
+    },
+    "pct_managerial": {
+     "size_region_lost": {
+      "b": -0.009322868695654544,
+      "lo": -0.020836062218787255,
+      "hi": 0.0021903248274781646,
+      "p": 0.11249201522748145
+     },
+     "size_region_n": 905,
+     "plus_remote_lost": {
+      "b": -0.012335084547164598,
+      "lo": -0.023481965868237212,
+      "hi": -0.0011882032260919825,
+      "p": 0.03009129480163883
+     },
+     "plus_remote_n": 905
+    },
+    "income_fye2023": {
+     "size_region_lost": {
+      "b": -261.4704510831757,
+      "lo": -1798.542317137116,
+      "hi": 1275.6014149707648,
+      "p": 0.7388260254318204
+     },
+     "size_region_n": 593,
+     "plus_remote_lost": {
+      "b": -781.3529683867263,
+      "lo": -2258.691871701103,
+      "hi": 695.9859349276506,
+      "p": 0.29991784135798805
+     },
+     "plus_remote_n": 593
+    }
+   }
+  },
+  "near_cities": {
+   "n_lost": 239,
+   "n_kept": 480,
+   "models": {
+    "pct_65plus": {
+     "size_region_lost": {
+      "b": 0.002261929490399303,
+      "lo": -0.0062620426331953015,
+      "hi": 0.010785901613993908,
+      "p": 0.6029953145560962
+     },
+     "size_region_n": 719,
+     "plus_remote_lost": {
+      "b": 0.002219561018380679,
+      "lo": -0.006312768856616847,
+      "hi": 0.010751890893378205,
+      "p": 0.6101523432564109
+     },
+     "plus_remote_n": 719
+    },
+    "pct_no_car": {
+     "size_region_lost": {
+      "b": -0.00474808370662034,
+      "lo": -0.013421628363870054,
+      "hi": 0.003925460950629373,
+      "p": 0.28330424256329
+     },
+     "size_region_n": 719,
+     "plus_remote_lost": {
+      "b": -0.004723601216406113,
+      "lo": -0.013406268153058164,
+      "hi": 0.003959065720245939,
+      "p": 0.2863005144787637
+     },
+     "plus_remote_n": 719
+    },
+    "pct_in_work": {
+     "size_region_lost": {
+      "b": 0.002496928138175807,
+      "lo": -0.005920563556282708,
+      "hi": 0.01091441983263432,
+      "p": 0.5609741353198546
+     },
+     "size_region_n": 719,
+     "plus_remote_lost": {
+      "b": 0.002528962757767441,
+      "lo": -0.005875293092411746,
+      "hi": 0.010933218607946629,
+      "p": 0.5553370432585172
+     },
+     "plus_remote_n": 719
+    },
+    "pct_sick": {
+     "size_region_lost": {
+      "b": 4.1380295835251695e-05,
+      "lo": -0.002533632949005782,
+      "hi": 0.0026163935406762857,
+      "p": 0.9748735880520681
+     },
+     "size_region_n": 719,
+     "plus_remote_lost": {
+      "b": 2.9005976630274696e-05,
+      "lo": -0.002524884935354183,
+      "hi": 0.0025828968886147325,
+      "p": 0.9822402259403511
+     },
+     "plus_remote_n": 719
+    },
+    "pct_managerial": {
+     "size_region_lost": {
+      "b": -0.017597465773130375,
+      "lo": -0.0317161489729798,
+      "hi": -0.00347878257328095,
+      "p": 0.014570151366071742
+     },
+     "size_region_n": 719,
+     "plus_remote_lost": {
+      "b": -0.01755698553580723,
+      "lo": -0.03163180660334933,
+      "hi": -0.003482164468265131,
+      "p": 0.014490574558691379
+     },
+     "plus_remote_n": 719
+    },
+    "income_fye2023": {
+     "size_region_lost": {
+      "b": -2104.955297562183,
+      "lo": -3619.9338829694225,
+      "hi": -589.9767121549442,
+      "p": 0.006464684798441205
+     },
+     "size_region_n": 546,
+     "plus_remote_lost": {
+      "b": -2083.8789037021643,
+      "lo": -3600.0119785230636,
+      "hi": -567.7458288812645,
+      "p": 0.00706190144157576
+     },
+     "plus_remote_n": 546
+    }
+   }
+  }
+ },
+ "headline": {
+  "age65_pts": 0.29227982758040677,
+  "age65_pts_remote": 0.27343840397590624,
+  "nocar_pts": -0.791654774233995,
+  "work_pts": 0.13998649184503828,
+  "sick_pts": -0.028138389629990317,
+  "mgr_pts": -1.3372120718878415,
+  "income_gbp": -1612.555097888775,
+  "income_gbp_remote": -1479.6173479148358,
+  "income_n": 1198,
+  "income_pct_of_kept": -0.03147677333376488,
+  "income_p": 0.005761626019513273,
+  "mgr_p": 0.004611505360212569,
+  "nocar_p": 0.006185240092934153,
+  "age65_p": 0.34689534544329825,
+  "regained_work_pts": 2.2379947793960953,
+  "regained_work_p": 0.0005531772493333421,
+  "lost_share_small": 0.5,
+  "lost_share_large": 0.0392156862745098,
+  "away_income_gbp": -261.4704510831757,
+  "away_income_p": 0.7388260254318204,
+  "near_income_gbp": -2104.955297562183,
+  "near_income_p": 0.006464684798441205,
+  "near_mgr_pts": -1.7597465773130376
+ },
+ "spot": {
+  "Leigh (Wigan)": {
+   "pop": 43532,
+   "group": "lost",
+   "closed": "Howe Bridge (1959); Hindley Green (1961); West Leigh and Bedford (1964); Park Lane Halt (1964); Leigh (1969)",
+   "last": 1969,
+   "today": ""
+  },
+  "Washington": {
+   "pop": 51878,
+   "group": "lost",
+   "closed": "Usworth (1963); Cox Green (1964)",
+   "last": 1964,
+   "today": ""
+  },
+  "Dunstable": {
+   "pop": 33304,
+   "group": "lost",
+   "closed": "Dunstable North (1965); Dunstable Town (1965)",
+   "last": 1965,
+   "today": ""
+  },
+  "Skelmersdale": {
+   "pop": 33961,
+   "group": "lost",
+   "closed": "Skelmersdale (1956)",
+   "last": 1956,
+   "today": ""
+  },
+  "Witney": {
+   "pop": 26840,
+   "group": "lost",
+   "closed": "Witney (1962)",
+   "last": 1962,
+   "today": ""
+  },
+  "Haverhill": {
+   "pop": 26431,
+   "group": "lost",
+   "closed": "Haverhill (1967)",
+   "last": 1967,
+   "today": ""
+  },
+  "Portishead": {
+   "pop": 25435,
+   "group": "lost",
+   "closed": "Portishead (1964)",
+   "last": 1964,
+   "today": ""
+  },
+  "Consett": {
+   "pop": 27578,
+   "group": "lost",
+   "closed": "Blackhill (1955); Consett (1955)",
+   "last": 1955,
+   "today": ""
+  },
+  "Mansfield": {
+   "pop": 61294,
+   "group": "regained",
+   "closed": "Mansfield Central (1956); Mansfield Woodhouse (1964); Mansfield Town (1964)",
+   "last": 1964,
+   "today": "Mansfield Woodhouse; Mansfield"
+  },
+  "Corby": {
+   "pop": 67661,
+   "group": "regained",
+   "closed": "Corby (1967)",
+   "last": 1967,
+   "today": "Corby"
+  },
+  "Kenilworth": {
+   "pop": 22036,
+   "group": "regained",
+   "closed": "Kenilworth (1965)",
+   "last": 1965,
+   "today": "Kenilworth"
+  },
+  "Ashington (Northumberland)": {
+   "pop": 28281,
+   "group": "regained",
+   "closed": "North Seaton (1964); Ashington (1964)",
+   "last": 1964,
+   "today": "Ashington"
+  },
+  "Ilkeston": {
+   "pop": 39379,
+   "group": "regained",
+   "closed": "Ilkeston North (1964); Trowell (1967); Ilkeston Junction and Cossall (1967)",
+   "last": 1967,
+   "today": "Ilkeston"
+  },
+  "Clitheroe": {
+   "pop": 17139,
+   "group": "regained",
+   "closed": "Clitheroe (1962)",
+   "last": 1962,
+   "today": "Clitheroe"
+  },
+  "Brighouse": {
+   "pop": 32643,
+   "group": "regained",
+   "closed": "Lightcliffe (1965); Brighouse (1970)",
+   "last": 1970,
+   "today": "Brighouse"
+  },
+  "Okehampton": {
+   "pop": 9509,
+   "group": "regained",
+   "closed": "Okehampton (1972)",
+   "last": 1972,
+   "today": "Okehampton Interchange; Okehampton"
+  },
+  "Galashiels": {
+   "pop": null,
+   "group": "regained",
+   "closed": "Galashiels (1969)",
+   "last": 1969,
+   "today": "Galashiels; Tweedbank"
+  },
+  "Wallsend": {
+   "pop": 45961,
+   "group": "lost",
+   "closed": "Carville (1973); Willington Quay (1973); Point Pleasant (1973)",
+   "last": 1973,
+   "today": ""
+  },
+  "Sale": {
+   "pop": 61867,
+   "group": "lost",
+   "closed": "Baguley (1964); West Timperley (1964)",
+   "last": 1964,
+   "today": ""
+  },
+  "Kingswood and Fishponds": {
+   "pop": 154915,
+   "group": "lost",
+   "closed": "Staple Hill (Bristol) (1966); Oldland Common (1966); Mangotsfield (1966); Fishponds (Bristol) (1966); Warmley (1966)",
+   "last": 1966,
+   "today": ""
+  },
+  "Dudley (Dudley)": {
+   "pop": 59995,
+   "group": "lost",
+   "closed": "Blowers Green (1962); Round Oak (1962); Tipton Five Ways (1962); Baptist End Halt (1964); Dudley (1964); Windmill End Halt (1964); Darby End Halt (1964)",
+   "last": 1964,
+   "today": ""
+  },
+  "Newcastle-under-Lyme": {
+   "pop": 76230,
+   "group": "kept",
+   "closed": "Silverdale (Staffordshire) (1964); Liverpool Road Halt (Newcastle-under-Lyme) (1964); Newcastle-under-Lyme (1964)",
+   "last": 2005,
+   "today": "Longport"
+  },
+  "Loughborough": {
+   "pop": 65642,
+   "group": "kept",
+   "closed": "Loughborough Central (1969)",
+   "last": 1969,
+   "today": "Loughborough"
+  }
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "n_list_pages": 12,
+ "n_rows": 6924,
+ "n_with_year": 6919,
+ "placing": {
+  "wikidata_label": 5916,
+  "unplaced": 473,
+  "osm_closed_station_name": 335,
+  "osnames_place": 176,
+  "national_rail_name": 7
+ },
+ "wd_year_agreement": {
+  "exact": 741,
+  "differ": 118,
+  "within1": 13
+ },
+ "n_wd_items": 9706,
+ "n_wd_with_close": 952,
+ "n_osm_objects": 13600,
+ "wd_extra_1955_75": 17,
+ "n_nr": 2609,
+ "nr_status": {
+  "open_in_1975": 2267,
+  "reopened_after_1975": 154,
+  "new_after_1975": 188
+ }
+}
